@@ -1,9 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 7 of /gpfs/gsfs10/users/millerv2/NanoseqSnakemake/snakefile:
-Missing input files for rule all:
-fastqc_raw/SGNex_A549_directRNA_replicate6_run1_fastqc.zip
-fastqc_raw/SGNex_A549_directRNA_replicate5_run1_fastqc.html
-fastqc_raw/SGNex_A549_directRNA_replicate6_run1_fastqc.html
-fastqc_raw/SGNex_A549_directRNA_replicate1_run1_fastqc.zip
-fastqc_raw/SGNex_A549_directRNA_replicate5_run1_fastqc.zip
-fastqc_raw/SGNex_A549_directRNA_replicate1_run1_fastqc.html

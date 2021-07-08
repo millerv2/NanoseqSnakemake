@@ -1,5 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 7 of /gpfs/gsfs10/users/millerv2/NanoseqSnakemake/snakefile:
-Missing input files for rule all:
-/data/millerv2/Nanoplot/Yield_By_Length.png
-/data/millerv2/NanoplotYield_by_Length.html
