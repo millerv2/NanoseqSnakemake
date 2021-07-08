@@ -3,7 +3,6 @@ SAMPLES = ["SGNex_A549_directRNA_replicate1_run1","SGNex_A549_directRNA_replicat
 
 #orkflow_base = '/data/millerv2'
 
-
 rule all:
     input:
         expand("/data/millerv2/fastqc_raw/{sample}_fastqc.html",sample=SAMPLES),
