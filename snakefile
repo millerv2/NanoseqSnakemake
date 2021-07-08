@@ -1,5 +1,7 @@
 # Short workflow to run fastqc and cutadapt.
-SAMPLES = ["SGNex_A549_directcDNA_replicate1_run3","SGNex_A549_directcDNA_replicate2_run1","SGNex_A549_directcDNA_replicate3_run1"]
+SAMPLES = ["SGNex_A549_directRNA_replicate1_run1"]
+# SGNex_A549_directRNA_replicate5_run1, SGNex_A549_directRNA_replicate6_run1
+
 rule all:
     input:
         expand("fastqc_raw/{sample}_fastqc.html",sample=SAMPLES),
@@ -9,10 +11,9 @@ rule all:
         #expand("fastqc_trimmed/{sample}_trimmed_fastqc.html",sample=SAMPLES),
         #expand("fastqc_trimmed/{sample}_trimmed_fastqc.zip",sample=SAMPLES)
 
-#test 
 rule fastqc_raw:
     input:
-        "A549samples/{sample}.fastq.gz"
+        "samples/{sample}.fastq.gz"
     envmodules:
         "fastqc/0.11.9"
     output:
