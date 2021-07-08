@@ -61,7 +61,7 @@ rule nanoplot:
     cutadapt -q 15,10 -o {output} {input}
     '''
  """
-
+#testing
 """ rule fastqc_trimmed:
     input:
         "trimmed_reads/{sample}_trimmed.fastq.gz"
