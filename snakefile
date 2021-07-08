@@ -1,11 +1,13 @@
 # Short workflow to run fastqc and cutadapt.
-SAMPLES = ["SGNex_A549_directRNA_replicate1_run1"]
-# SGNex_A549_directRNA_replicate5_run1, SGNex_A549_directRNA_replicate6_run1
+SAMPLES = ["SGNex_A549_directRNA_replicate1_run1","SGNex_A549_directRNA_replicate6_run1"]
+
+#orkflow_base = '/data/millerv2'
+
 
 rule all:
     input:
-        expand("fastqc_raw/{sample}_fastqc.html",sample=SAMPLES),
-        expand("fastqc_raw/{sample}_fastqc.zip",sample=SAMPLES)
+        expand("/data/millerv2/fastqc_raw/{sample}_fastqc.html",sample=SAMPLES),
+        expand("/data/millerv2/fastqc_raw/{sample}_fastqc.zip",sample=SAMPLES)
         #expand("trimmed_reads/{sample}_trimmed.fastq.gz",sample=SAMPLES),
         #expand("trimmed_reads/{sample}_trimmed.fastq.gz",sample=SAMPLES),
         #expand("fastqc_trimmed/{sample}_trimmed_fastqc.html",sample=SAMPLES),
@@ -13,14 +15,14 @@ rule all:
 
 rule fastqc_raw:
     input:
-        "samples/{sample}.fastq.gz"
+        "/data/millerv2/samples/{sample}.fastq.gz"
     envmodules:
         "fastqc/0.11.9"
     output:
-        "fastqc_raw/{sample}_fastqc.html",
-        "fastqc_raw/{sample}_fastqc.zip"
+        "/data/millerv2/fastqc_raw/{sample}_fastqc.html",
+        "/data/millerv2/fastqc_raw/{sample}_fastqc.zip"
     shell:'''
-    fastqc -o fastqc_raw {input}
+    fastqc -o /data/millerv2/fastqc_raw {input}
     '''
 
 #
