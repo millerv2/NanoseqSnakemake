@@ -1,0 +1,4 @@
+Building DAG of jobs...
+WildcardError in line 29 of /gpfs/gsfs10/users/millerv2/NanoseqSnakemake/snakefile:
+Wildcards in input files cannot be determined from output files:
+'sample'

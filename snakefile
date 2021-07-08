@@ -7,7 +7,9 @@ SAMPLES = ["SGNex_A549_directRNA_replicate1_run1","SGNex_A549_directRNA_replicat
 rule all:
     input:
         expand("/data/millerv2/fastqc_raw/{sample}_fastqc.html",sample=SAMPLES),
-        expand("/data/millerv2/fastqc_raw/{sample}_fastqc.zip",sample=SAMPLES)
+        expand("/data/millerv2/fastqc_raw/{sample}_fastqc.zip",sample=SAMPLES),
+        "/data/millerv2/Nanoplot/Yield_By_Length.png",
+        "/data/millerv2/Nanoplot/Yield_by_Length.html"
         #expand("trimmed_reads/{sample}_trimmed.fastq.gz",sample=SAMPLES),
         #expand("trimmed_reads/{sample}_trimmed.fastq.gz",sample=SAMPLES),
         #expand("fastqc_trimmed/{sample}_trimmed_fastqc.html",sample=SAMPLES),
@@ -23,6 +25,28 @@ rule fastqc_raw:
         "/data/millerv2/fastqc_raw/{sample}_fastqc.zip"
     shell:'''
     fastqc -o /data/millerv2/fastqc_raw {input}
+    '''
+
+
+
+rule nanoplot:
+    container: 
+        "docker://continuumio/miniconda3:4.4.10"
+    input:
+        expand("/data/millerv2/samples/{sample}.fastq.gz",sample=SAMPLES)
+        #"/data/millerv2/samples/{sample}.fastq.gz"
+        #"/data/millerv2/samples/SGNex_A549_directRNA_replicate1_run1.fastq.gz",
+        #"/data/millerv2/samples/SGNex_A549_directRNA_replicate6_run1.fastq.gz"
+    conda:
+        "envs/nanoplot.yaml"
+# This container defines the underlying OS for each job when using the workflow
+# with --use-conda --use-singularity
+    output:
+        "/data/millerv2/Nanoplot/Yield_By_Length.png",
+        "/data/millerv2/Nanoplot/Yield_by_Length.html"
+    shell:'''
+    NanoPlot -o /data/millerv2/Nanoplot/summary-plots-log-transformed 
+    --fastq {input} /
     '''
 
 #
@@ -50,16 +74,5 @@ rule fastqc_raw:
     fastqc -o fastqc_trimmed {input}
     ''' """
 
-""" rule nanoplot:
-    input:
-        "A549samples/{sample}.fastq.gz"
-    conda:
-        "envs/nanoplot.yaml"
-    output:
-        "Yield_By_Length.png",
-        "Yield_by_Length.html"
-    shell:'''
-    Nanoplot -o summary-plots-log-transformed 
-    --fastq {sample}.fastq.gz /
-    '''
- """
+
+ 
