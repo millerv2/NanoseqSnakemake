@@ -26,11 +26,9 @@ rule fastqc_raw:
     fastqc -o /data/millerv2/fastqc_raw {input}
     '''
 
-
-
 rule nanoplot:
-    container: 
-        "docker://continuumio/miniconda3:4.4.10"
+    #container: 
+    #    "docker://continuumio/miniconda3:4.4.10"
     input:
         expand("/data/millerv2/samples/{sample}.fastq.gz",sample=SAMPLES)
         #"/data/millerv2/samples/{sample}.fastq.gz"
