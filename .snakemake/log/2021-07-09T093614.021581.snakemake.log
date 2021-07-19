@@ -1,0 +1,457 @@
+Building DAG of jobs...
+Pulling singularity image docker://continuumio/miniconda3:4.7.12.
+Creating conda environment envs/nanoplot.yaml...
+Downloading and installing remote packages.
+CreateCondaEnvironmentException:
+Could not create conda environment from /gpfs/gsfs10/users/millerv2/NanoseqSnakemake/envs/nanoplot.yaml:
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... 
+Finding conflicts:   0%|          | 0/248 [00:00<?, ?it/s]
+Examining cycler:   0%|          | 0/248 [00:00<?, ?it/s] 
+Examining libpng:   0%|          | 1/248 [00:00<00:00, 12018.06it/s]
+Examining pkg-config:   1%|          | 2/248 [00:00<00:00, 12035.31it/s]
+Examining libllvm9:   1%|          | 3/248 [00:00<00:00, 14059.12it/s]  
+Examining blis:   2%|▏         | 4/248 [00:00<00:00, 13046.05it/s]    
+Examining libssh2:   2%|▏         | 5/248 [00:00<00:00, 13400.33it/s]
+Examining libvorbis:   2%|▏         | 6/248 [00:00<00:00, 14364.05it/s]
+Examining libgfortran-ng:   3%|▎         | 7/248 [00:00<00:00, 15355.72it/s]
+Examining gmp:   3%|▎         | 8/248 [00:00<00:00, 14703.96it/s]           
+Examining sqlite:   4%|▎         | 9/248 [00:00<00:00, 15057.33it/s]
+Examining libgfortran4:   4%|▍         | 10/248 [00:00<00:00, 14473.10it/s]
+Examining bcftools:   4%|▍         | 11/248 [00:00<00:00, 14422.43it/s]    
+Examining font-ttf-inconsolata:   5%|▍         | 12/248 [00:00<00:00, 14851.47it/s]
+Examining c-ares:   5%|▌         | 13/248 [00:00<00:00, 15363.75it/s]              
+Examining pyqt5-sip:   6%|▌         | 14/248 [00:00<00:00, 15709.00it/s]
+Examining cudatoolkit:   6%|▌         | 15/248 [00:00<00:00, 16144.36it/s]
+Examining pytz:   6%|▋         | 16/248 [00:00<00:00, 16689.60it/s]       
+Examining libboost:   7%|▋         | 17/248 [00:00<00:00, 16690.82it/s]
+Examining xorg-libxt:   7%|▋         | 18/248 [00:00<00:00, 17158.52it/s]
+Examining _sysroot_linux-64_curr_repodata_hack:   8%|▊         | 19/248 [00:00<00:00, 17495.45it/s]
+Examining libstdcxx-devel_linux-64:   8%|▊         | 20/248 [00:00<00:00, 17179.21it/s]            
+Examining libblas:   8%|▊         | 21/248 [00:00<00:00, 16822.07it/s]                 
+Examining libgcc:   9%|▉         | 22/248 [00:00<00:00, 16354.96it/s] 
+Examining tenacity:   9%|▉         | 23/248 [00:00<00:00, 16504.53it/s]
+Examining lerc:  10%|▉         | 24/248 [00:00<00:00, 16855.88it/s]    
+Examining uriparser:  10%|█         | 25/248 [00:00<00:00, 17083.35it/s]
+Examining font-ttf-source-code-pro:  10%|█         | 26/248 [00:00<00:00, 17400.97it/s]
+Examining libstdcxx-ng:  11%|█         | 27/248 [00:00<00:00, 17642.34it/s]            
+Examining libedit:  11%|█▏        | 28/248 [00:00<00:00, 17319.06it/s]     
+Examining libtmglib:  12%|█▏        | 29/248 [00:00<00:00, 17167.93it/s]
+Examining xorg-xextproto:  12%|█▏        | 30/248 [00:00<00:00, 17192.12it/s]
+Examining pillow:  12%|█▎        | 31/248 [00:00<00:00, 17401.42it/s]        
+Examining gdk-pixbuf:  13%|█▎        | 32/248 [00:00<00:00, 17284.96it/s]
+Examining krb5:  13%|█▎        | 33/248 [00:00<00:00, 17454.23it/s]      
+Examining aws-sdk-cpp:  14%|█▎        | 34/248 [00:00<00:00, 17568.85it/s]
+Examining liblapacke:  14%|█▍        | 35/248 [00:00<00:00, 17811.29it/s] 
+Examining libuuid:  15%|█▍        | 36/248 [00:00<00:00, 17672.63it/s]   
+Examining mkl:  15%|█▍        | 37/248 [00:00<00:00, 17854.26it/s]    
+Examining re2:  15%|█▌        | 38/248 [00:00<00:00, 17660.23it/s]
+Examining tzdata:  16%|█▌        | 39/248 [00:00<00:00, 17867.60it/s]
+Examining libxcb:  16%|█▌        | 40/248 [00:00<00:00, 17740.53it/s]
+Examining gsl:  17%|█▋        | 41/248 [00:00<00:00, 17890.81it/s]   
+Examining libgomp:  17%|█▋        | 42/248 [00:00<00:00, 18041.86it/s]
+Examining brotli:  17%|█▋        | 43/248 [00:00<00:00, 17797.03it/s] 
+Examining libgcc-devel_linux-64:  18%|█▊        | 44/248 [00:00<00:00, 17987.27it/s]
+Examining libprotobuf:  18%|█▊        | 45/248 [00:00<00:00, 17784.20it/s]          
+Examining gdbm:  19%|█▊        | 46/248 [00:00<00:00, 17959.41it/s]       
+Examining llvm:  19%|█▉        | 47/248 [00:00<00:00, 17891.84it/s]
+Examining expat:  19%|█▉        | 48/248 [00:00<00:00, 17706.82it/s]
+Examining bottleneck:  20%|█▉        | 49/248 [00:00<00:00, 17618.59it/s]
+Examining libgcc-ng:  20%|██        | 50/248 [00:00<00:00, 17651.31it/s] 
+Examining retrying:  21%|██        | 51/248 [00:00<00:00, 17474.84it/s] 
+Examining setuptools:  21%|██        | 52/248 [00:00<00:00, 17628.82it/s]
+Examining glib-tools:  21%|██▏       | 53/248 [00:00<00:00, 15941.06it/s]
+Examining glib:  22%|██▏       | 54/248 [00:00<00:00, 15983.94it/s]      
+Examining tbb4py:  22%|██▏       | 55/248 [00:00<00:00, 16023.25it/s]
+Examining libxkbcommon:  23%|██▎       | 56/248 [00:00<00:00, 15843.58it/s]
+Examining mpc:  23%|██▎       | 57/248 [00:00<00:00, 15953.24it/s]         
+Examining mysql-libs:  23%|██▎       | 58/248 [00:00<00:00, 16008.79it/s]
+Examining htslib:  24%|██▍       | 59/248 [00:00<00:00, 16110.93it/s]    
+Examining libnghttp2:  24%|██▍       | 60/248 [00:00<00:00, 16205.70it/s]
+Examining libxml2:  25%|██▍       | 61/248 [00:00<00:00, 16297.38it/s]   
+Examining pypy3.6:  25%|██▌       | 62/248 [00:00<00:00, 16392.26it/s]
+Examining isl:  25%|██▌       | 63/248 [00:00<00:00, 16348.52it/s]    
+Examining libglib:  26%|██▌       | 64/248 [00:00<00:00, 16393.00it/s]
+Examining plotly:  26%|██▌       | 65/248 [00:00<00:00, 16469.12it/s] 
+Examining llvm-openmp:  27%|██▋       | 66/248 [00:00<00:00, 16593.18it/s]
+Examining matplotlib-base:  27%|██▋       | 67/248 [00:00<00:00, 16540.22it/s]
+Examining mpfr:  27%|██▋       | 68/248 [00:00<00:00, 16519.70it/s]           
+Examining zstd:  28%|██▊       | 69/248 [00:00<00:00, 16567.84it/s]
+Examining fribidi:  28%|██▊       | 70/248 [00:00<00:00, 16609.23it/s]
+Examining icu:  29%|██▊       | 71/248 [00:00<00:00, 16701.00it/s]    
+Examining certifi:  29%|██▉       | 72/248 [00:00<00:00, 16769.76it/s]
+Examining poppler:  29%|██▉       | 73/248 [00:00<00:00, 16462.40it/s]
+Examining boost-cpp:  30%|██▉       | 74/248 [00:00<00:00, 16521.80it/s]
+Examining binutils_impl_linux-64:  30%|███       | 75/248 [00:00<00:00, 16634.38it/s]
+Examining fontconfig:  31%|███       | 76/248 [00:00<00:00, 16523.28it/s]            
+Examining xorg-libpthread-stubs:  31%|███       | 77/248 [00:00<00:00, 16587.64it/s]
+Examining perl:  31%|███▏      | 78/248 [00:00<00:00, 16675.45it/s]                 
+Examining _libgcc_mutex:  32%|███▏      | 79/248 [00:00<00:00, 16746.69it/s]
+Examining libevent:  32%|███▏      | 80/248 [00:00<00:00, 16707.05it/s]     
+Examining pip:  33%|███▎      | 81/248 [00:00<00:00, 16774.73it/s]     
+Examining intel-openmp:  33%|███▎      | 82/248 [00:00<00:00, 16503.50it/s]
+Examining openblas-devel:  33%|███▎      | 83/248 [00:00<00:00, 16509.88it/s]
+Examining libwebp:  34%|███▍      | 84/248 [00:00<00:00, 16519.98it/s]       
+Examining tbb:  34%|███▍      | 85/248 [00:00<00:00, 16533.68it/s]    
+Examining openssl:  35%|███▍      | 86/248 [00:00<00:00, 16500.92it/s]
+Examining texlive-core:  35%|███▌      | 87/248 [00:00<00:00, 16407.57it/s]
+Examining mkl-devel:  35%|███▌      | 88/248 [00:00<00:00, 16477.62it/s]   
+Examining xorg-kbproto:  36%|███▌      | 89/248 [00:00<00:00, 16466.39it/s]
+Examining nspr:  36%|███▋      | 90/248 [00:00<00:00, 16539.05it/s]        
+Examining libgfortran5:  37%|███▋      | 91/248 [00:00<00:00, 16609.30it/s]
+Examining pyqtchart:  37%|███▋      | 92/248 [00:00<00:00, 16576.14it/s]   
+Examining libopus:  38%|███▊      | 93/248 [00:00<00:00, 16645.48it/s]  
+Examining pthread-stubs:  38%|███▊      | 94/248 [00:00<00:00, 16717.46it/s]
+Examining msgpack-python:  38%|███▊      | 95/248 [00:00<00:00, 16788.53it/s]
+Examining pysam:  39%|███▊      | 96/248 [00:00<00:00, 16838.96it/s]         
+Examining libbrotlicommon:  39%|███▉      | 97/248 [00:00<00:00, 16869.04it/s]
+Examining abseil-cpp:  40%|███▉      | 98/248 [00:00<00:00, 16956.47it/s]     
+Examining libclang-cpp11.1:  40%|███▉      | 99/248 [00:00<00:00, 17043.72it/s]
+Examining clangdev:  40%|████      | 100/248 [00:00<00:00, 17018.19it/s]       
+Examining libcurl:  41%|████      | 101/248 [00:00<00:00, 16949.73it/s] 
+Examining pcre:  41%|████      | 102/248 [00:00<00:00, 16985.71it/s]   
+Examining libpq:  42%|████▏     | 103/248 [00:00<00:00, 17041.95it/s]
+Examining parquet-cpp:  42%|████▏     | 104/248 [00:00<00:00, 17102.83it/s]
+Examining s2n:  42%|████▏     | 105/248 [00:00<00:00, 17153.62it/s]        
+Examining libogg:  43%|████▎     | 106/248 [00:00<00:00, 17231.74it/s]
+Examining xorg-renderproto:  43%|████▎     | 107/248 [00:00<00:00, 17290.43it/s]
+Examining pango:  44%|████▎     | 108/248 [00:00<00:00, 17353.08it/s]           
+Examining xorg-libxdmcp:  44%|████▍     | 109/248 [00:00<00:00, 17399.78it/s]
+Examining gettext:  44%|████▍     | 110/248 [00:00<00:00, 17459.73it/s]      
+Examining python-dateutil:  45%|████▍     | 111/248 [00:00<00:00, 17520.33it/s]
+Examining aws-c-event-stream:  45%|████▌     | 112/248 [00:00<00:00, 17516.67it/s]
+Examining libcblas:  46%|████▌     | 113/248 [00:00<00:00, 17592.38it/s]          
+Examining qt:  46%|████▌     | 114/248 [00:00<00:00, 17492.25it/s]      
+Examining zlib:  46%|████▋     | 115/248 [00:00<00:00, 17534.08it/s]
+Examining fonts-conda-forge:  47%|████▋     | 116/248 [00:00<00:00, 17486.32it/s]
+Examining openjpeg:  47%|████▋     | 117/248 [00:00<00:00, 17540.61it/s]         
+Examining six:  48%|████▊     | 118/248 [00:00<00:00, 17577.44it/s]     
+Examining atk-1.0:  48%|████▊     | 119/248 [00:00<00:00, 17501.39it/s]
+Examining jpeg:  48%|████▊     | 120/248 [00:00<00:00, 17553.06it/s]   
+Examining cloog:  49%|████▉     | 121/248 [00:00<00:00, 17597.46it/s]
+Examining blas-devel:  49%|████▉     | 122/248 [00:00<00:00, 17631.02it/s]
+Examining fonts-conda-ecosystem:  50%|████▉     | 123/248 [00:00<00:00, 17631.56it/s]
+Examining utf8proc:  50%|█████     | 124/248 [00:00<00:00, 17685.45it/s]             
+Examining sip:  50%|█████     | 125/248 [00:00<00:00, 17753.22it/s]     
+Examining reportlab:  51%|█████     | 126/248 [00:00<00:00, 17797.61it/s]
+Examining libclang-cpp10:  51%|█████     | 127/248 [00:00<00:00, 17768.92it/s]
+Examining xorg-libxext:  52%|█████▏    | 128/248 [00:00<00:00, 17728.46it/s]  
+Examining mmtf-python:  52%|█████▏    | 129/248 [00:00<00:00, 17776.56it/s] 
+Examining gflags:  52%|█████▏    | 130/248 [00:00<00:00, 17827.68it/s]     
+Examining ld_impl_linux-64:  53%|█████▎    | 131/248 [00:00<00:00, 17894.02it/s]
+Examining pixman:  53%|█████▎    | 132/248 [00:00<00:00, 17831.43it/s]          
+Examining mkl-service:  54%|█████▎    | 133/248 [00:00<00:00, 17878.99it/s]
+Examining xorg-libsm:  54%|█████▍    | 134/248 [00:00<00:00, 17854.34it/s] 
+Examining wheel:  54%|█████▍    | 135/248 [00:00<00:00, 17900.01it/s]     
+Examining tornado:  55%|█████▍    | 136/248 [00:00<00:00, 17738.21it/s]
+Examining libtiff:  55%|█████▌    | 137/248 [00:00<00:00, 17747.77it/s]
+Examining freetype:  56%|█████▌    | 138/248 [00:00<00:00, 17771.93it/s]
+Examining numexpr:  56%|█████▌    | 139/248 [00:00<00:00, 17795.26it/s] 
+Examining cairo:  56%|█████▋    | 140/248 [00:00<00:00, 17776.78it/s]  
+Examining brotli-bin:  57%|█████▋    | 141/248 [00:00<00:00, 17812.09it/s]
+Examining kernel-headers_linux-64:  57%|█████▋    | 142/248 [00:00<00:00, 17873.28it/s]
+Examining aws-c-cal:  58%|█████▊    | 143/248 [00:00<00:00, 17838.55it/s]              
+Examining xorg-libxrender:  58%|█████▊    | 144/248 [00:00<00:00, 17898.88it/s]
+Examining ninja:  58%|█████▊    | 145/248 [00:00<00:00, 17943.41it/s]          
+Examining lz4:  59%|█████▉    | 146/248 [00:00<00:00, 17960.12it/s]  
+Examining pyarrow:  59%|█████▉    | 147/248 [00:00<00:00, 17938.46it/s]
+Examining nanoget:  60%|█████▉    | 148/248 [00:00<00:00, 17997.13it/s]
+Examining font-ttf-dejavu-sans-mono:  60%|██████    | 149/248 [00:00<00:00, 18054.35it/s]
+Examining gtk2:  60%|██████    | 150/248 [00:00<00:00, 18098.66it/s]                     
+Examining thrift-compiler:  61%|██████    | 151/248 [00:00<00:00, 18140.52it/s]
+Examining libclang-cpp:  61%|██████▏   | 152/248 [00:00<00:00, 18198.62it/s]   
+Examining mkl-include:  62%|██████▏   | 153/248 [00:00<00:00, 18154.08it/s] 
+Examining libwebp-base:  62%|██████▏   | 154/248 [00:00<00:00, 18130.15it/s]
+Examining sysroot_linux-64:  62%|██████▎   | 155/248 [00:00<00:00, 18161.22it/s]
+Examining aws-checksums:  63%|██████▎   | 156/248 [00:00<00:00, 18132.50it/s]   
+Examining matplotlib:  63%|██████▎   | 157/248 [00:00<00:00, 18187.25it/s]   
+Examining arrow-cpp:  64%|██████▎   | 158/248 [00:00<00:00, 18193.55it/s] 
+Examining orc:  64%|██████▍   | 159/248 [00:00<00:00, 18248.08it/s]      
+Examining pyqtwebengine:  65%|██████▍   | 160/248 [00:00<00:00, 18301.25it/s]
+Examining harfbuzz:  65%|██████▍   | 161/248 [00:00<00:00, 18340.11it/s]     
+Examining libffi:  65%|██████▌   | 162/248 [00:00<00:00, 18367.23it/s]  
+Examining xorg-xproto:  66%|██████▌   | 163/248 [00:00<00:00, 18330.96it/s]
+Examining bzip2:  66%|██████▌   | 164/248 [00:00<00:00, 18367.58it/s]      
+Examining biopython:  67%|██████▋   | 165/248 [00:00<00:00, 18337.58it/s]
+Examining llvm-tools:  67%|██████▋   | 166/248 [00:00<00:00, 18343.24it/s]
+Examining pyqt:  67%|██████▋   | 167/248 [00:00<00:00, 18274.17it/s]      
+Examining aws-c-common:  68%|██████▊   | 168/248 [00:00<00:00, 18293.86it/s]
+Examining libdeflate:  68%|██████▊   | 169/248 [00:00<00:00, 18342.75it/s]  
+Examining clang-11:  69%|██████▊   | 170/248 [00:00<00:00, 18370.00it/s]  
+Examining pandas:  69%|██████▉   | 171/248 [00:00<00:00, 18337.75it/s]  
+Examining gobject-introspection:  69%|██████▉   | 172/248 [00:00<00:00, 18273.98it/s]
+Examining gxx_impl_linux-64:  70%|██████▉   | 173/248 [00:00<00:00, 18283.89it/s]    
+Examining double-conversion:  70%|███████   | 174/248 [00:00<00:00, 18232.46it/s]
+Examining grpc-cpp:  71%|███████   | 175/248 [00:00<00:00, 18279.70it/s]         
+Examining pypy3.7:  71%|███████   | 176/248 [00:00<00:00, 18329.38it/s] 
+Examining aws-c-io:  71%|███████▏  | 177/248 [00:00<00:00, 18304.45it/s]
+Examining llvmdev:  72%|███████▏  | 178/248 [00:00<00:00, 18352.66it/s] 
+Examining pyqt-impl:  72%|███████▏  | 179/248 [00:00<00:00, 18299.22it/s]
+Examining snappy:  73%|███████▎  | 180/248 [00:00<00:00, 18332.19it/s]   
+Examining packaging:  73%|███████▎  | 181/248 [00:00<00:00, 18380.48it/s]
+Examining glog:  73%|███████▎  | 182/248 [00:00<00:00, 18357.58it/s]     
+Examining giflib:  74%|███████▍  | 183/248 [00:00<00:00, 18403.57it/s]
+Examining libiconv:  74%|███████▍  | 184/248 [00:00<00:00, 18429.46it/s]
+Examining libllvm10:  75%|███████▍  | 185/248 [00:00<00:00, 18461.72it/s]
+Examining numpy-base:  75%|███████▌  | 186/248 [00:00<00:00, 18426.49it/s]
+Examining clangxx:  75%|███████▌  | 187/248 [00:00<00:00, 18284.57it/s]   
+Examining libbrotlienc:  76%|███████▌  | 188/248 [00:00<00:00, 18233.57it/s]
+Examining libclang-cpp9:  76%|███████▌  | 189/248 [00:00<00:00, 18276.47it/s]
+Examining tk:  77%|███████▋  | 190/248 [00:00<00:00, 18252.81it/s]           
+Examining liblapack:  77%|███████▋  | 191/248 [00:00<00:00, 18205.02it/s]
+Examining gcc_impl_linux-64:  77%|███████▋  | 192/248 [00:00<00:00, 18169.45it/s]
+Examining blas:  78%|███████▊  | 193/248 [00:00<00:00, 18116.93it/s]             
+Examining numpy:  78%|███████▊  | 194/248 [00:00<00:00, 18052.82it/s]
+Examining thrift-cpp:  79%|███████▊  | 195/248 [00:00<00:00, 17610.22it/s]
+Examining gfortran_impl_linux-64:  79%|███████▉  | 196/248 [00:00<00:00, 17631.44it/s]
+Examining libev:  79%|███████▉  | 197/248 [00:00<00:00, 17578.51it/s]                 
+Examining curl:  80%|███████▉  | 198/248 [00:00<00:00, 17600.72it/s] 
+Examining wrapt:  80%|████████  | 199/248 [00:00<00:00, 17617.17it/s]
+Examining ncurses:  81%|████████  | 200/248 [00:00<00:00, 17614.61it/s]
+Examining clang-9:  81%|████████  | 201/248 [00:00<00:00, 17577.20it/s]
+Examining arrow-cpp-proc:  81%|████████▏ | 202/248 [00:00<00:00, 17559.57it/s]
+Examining xz:  82%|████████▏ | 203/248 [00:00<00:00, 17600.18it/s]            
+Examining gst-plugins-base:  82%|████████▏ | 204/248 [00:00<00:00, 17580.40it/s]
+Examining atk:  83%|████████▎ | 205/248 [00:00<00:00, 17604.00it/s]             
+Examining _openmp_mutex:  83%|████████▎ | 206/248 [00:00<00:00, 17632.12it/s]
+Examining deprecated:  83%|████████▎ | 207/248 [00:00<00:00, 17610.26it/s]   
+Examining lcms2:  84%|████████▍ | 208/248 [00:00<00:00, 17639.52it/s]     
+Examining mkl_random:  84%|████████▍ | 209/248 [00:00<00:00, 17666.10it/s]
+Examining nomkl:  85%|████████▍ | 210/248 [00:00<00:00, 17651.73it/s]     
+Examining jemalloc:  85%|████████▌ | 211/248 [00:00<00:00, 17656.88it/s]
+Examining alsa-lib:  85%|████████▌ | 212/248 [00:00<00:00, 17698.54it/s]
+Examining clang-tools:  86%|████████▌ | 213/248 [00:00<00:00, 17730.15it/s]
+Examining dbus:  86%|████████▋ | 214/248 [00:00<00:00, 17694.00it/s]       
+Examining olefile:  87%|████████▋ | 215/248 [00:00<00:00, 17706.17it/s]
+Examining lz4-c:  87%|████████▋ | 216/248 [00:00<00:00, 17729.35it/s]  
+Examining openblas:  88%|████████▊ | 217/248 [00:00<00:00, 17743.37it/s]
+Examining mysql-common:  88%|████████▊ | 218/248 [00:00<00:00, 17716.34it/s]
+Examining kiwisolver:  88%|████████▊ | 219/248 [00:00<00:00, 17743.98it/s]  
+Examining xorg-libx11:  89%|████████▊ | 220/248 [00:00<00:00, 17764.26it/s]
+Examining jbig:  89%|████████▉ | 221/248 [00:00<00:00, 17789.87it/s]       
+Examining pyparsing:  90%|████████▉ | 222/248 [00:00<00:00, 17814.64it/s]
+Examining libthrift:  90%|████████▉ | 223/248 [00:00<00:00, 17782.61it/s]
+Examining libopenblas:  90%|█████████ | 224/248 [00:00<00:00, 17819.67it/s]
+Examining libclang-cpp11:  91%|█████████ | 225/248 [00:00<00:00, 17790.90it/s]
+Examining libllvm11:  91%|█████████ | 226/248 [00:00<00:00, 17769.14it/s]     
+Examining xorg-libxau:  92%|█████████▏| 227/248 [00:00<00:00, 17747.30it/s]
+Examining nss:  92%|█████████▏| 228/248 [00:00<00:00, 17773.80it/s]        
+Examining libclang:  92%|█████████▏| 229/248 [00:00<00:00, 17795.85it/s]
+Examining samtools:  93%|█████████▎| 230/248 [00:00<00:00, 17757.75it/s]
+Examining graphite2:  93%|█████████▎| 231/248 [00:00<00:00, 17764.00it/s]
+Examining gstreamer:  94%|█████████▎| 232/248 [00:00<00:00, 17790.67it/s]
+Examining python:  94%|█████████▍| 233/248 [00:00<00:00, 17815.89it/s]   
+Examining xorg-libice:  94%|█████████▍| 234/248 [00:00<00:00, 17617.43it/s]
+Examining scipy:  95%|█████████▍| 235/248 [00:00<00:00, 17639.53it/s]      
+Examining ca-certificates:  95%|█████████▌| 236/248 [00:00<00:00, 17674.73it/s]
+Examining clang:  96%|█████████▌| 237/248 [00:00<00:00, 17641.58it/s]          
+Examining readline:  96%|█████████▌| 238/248 [00:00<00:00, 17608.20it/s]
+Examining poppler-data:  96%|█████████▋| 239/248 [00:00<00:00, 17590.35it/s]
+Examining mkl_fft:  97%|█████████▋| 240/248 [00:00<00:00, 17614.80it/s]     
+Examining nanomath:  97%|█████████▋| 241/248 [00:00<00:00, 17569.52it/s]
+Examining font-ttf-ubuntu:  98%|█████████▊| 242/248 [00:00<00:00, 17596.85it/s]
+Examining python_abi:  98%|█████████▊| 243/248 [00:00<00:00, 17624.35it/s]     
+Examining libgfortran:  98%|█████████▊| 244/248 [00:00<00:00, 17604.33it/s]
+Examining libutf8proc:  99%|█████████▉| 245/248 [00:00<00:00, 17608.03it/s]
+Examining libbrotlidec:  99%|█████████▉| 246/248 [00:00<00:00, 17642.41it/s]
+Examining xorg-libxcb: 100%|█████████▉| 247/248 [00:00<00:00, 17678.16it/s] 
+                                                                           
+Found conflicts! Looking for incompatible packages.
+This can take several minutes.  Press CTRL-C to abort.
+failed
+
+UnsatisfiableError: The following specifications were found to be incompatible with each other:
+
+
+
+Package htslib conflicts for:
+pysam[version='>0.10.0.0'] -> htslib[version='1.5.*|1.6.*|1.7.*|1.7|>=1.4,<1.5|>=1.4.1|>=1.4.1,<1.5|>=1.7,<1.8.0a0|>=1.9,<1.10.0a0']
+Package pypy3.7 conflicts for:
+scipy -> pypy3.7[version='>=7.3.3|>=7.3.4']
+pandas[version='>=1.1.0'] -> pypy3.7[version='>=7.3.3|>=7.3.4']
+python[version='>=3'] -> pypy3.7[version='7.3.3.*|7.3.4.*|7.3.5.*']
+biopython -> pypy3.7[version='>=7.3.3|>=7.3.4']
+numpy -> pypy3.7[version='>=7.3.3|>=7.3.4']
+Package liblapack conflicts for:
+scipy -> liblapack[version='>=3.8.0,<4.0.0a0|>=3.8.0,<4.0a0']
+numpy -> liblapack[version='>=3.8.0,<4.0.0a0|>=3.8.0,<4.0a0']
+Package libffi conflicts for:
+python[version='>=3'] -> libffi[version='3.2.*|>=3.2.1,<3.3.0a0|>=3.2.1,<3.3a0|>=3.3,<3.4.0a0']
+Package glog conflicts for:
+pyarrow -> glog
+Package futures conflicts for:
+pyarrow -> futures
+Package libgfortran-ng conflicts for:
+scipy -> libgfortran-ng[version='>=7,<8.0a0|>=7.2.0,<8.0a0']
+numpy -> libgfortran-ng[version='>=4.9|>=7,<8.0a0|>=7.2.0,<8.0a0']
+Package libgcc-ng conflicts for:
+libpng -> libgcc-ng[version='>=4.9|>=7.2.0|>=7.3.0|>=7.5.0']
+pandas[version='>=1.1.0'] -> libgcc-ng[version='>=7.3.0|>=7.5.0|>=9.3.0']
+pysam[version='>0.10.0.0'] -> libgcc-ng[version='>=4.9|>=7.3.0|>=7.5.0|>=9.3.0']
+scipy -> libgcc-ng[version='>=4.9|>=7.2.0|>=7.3.0|>=7.5.0|>=9.3.0']
+pyarrow -> libgcc-ng[version='>=4.9|>=7.2.0|>=7.3.0|>=7.5.0|>=9.3.0']
+numpy -> libgcc-ng[version='>=4.9|>=7.2.0|>=7.3.0|>=7.5.0|>=9.3.0']
+python[version='>=3'] -> libgcc-ng[version='>=4.9|>=7.2.0|>=7.3.0|>=7.5.0|>=9.3.0']
+biopython -> libgcc-ng[version='>=4.9|>=7.2.0|>=7.3.0|>=7.5.0|>=9.3.0']
+Package bzip2 conflicts for:
+python[version='>=3'] -> bzip2[version='>=1.0.6,<2.0a0|>=1.0.8,<2.0a0']
+pysam[version='>0.10.0.0'] -> bzip2[version='>=1.0.8,<2.0a0']
+Package zlib conflicts for:
+pysam[version='>0.10.0.0'] -> zlib[version='1.2.11.*|1.2.8.*|>=1.2.11,<1.3.0a0']
+python[version='>=3'] -> zlib[version='1.2.*|1.2.11|1.2.8|>=1.2.11,<1.3.0a0']
+libpng -> zlib[version='1.2.*|1.2.11|1.2.8|>=1.2.11,<1.3.0a0']
+Package libgfortran conflicts for:
+scipy -> libgfortran[version='>=3.0']
+numpy -> libgfortran[version='>=3.0']
+Package ld_impl_linux-64 conflicts for:
+python[version='>=3'] -> ld_impl_linux-64[version='>=2.34']
+Package parquet-cpp conflicts for:
+pyarrow -> parquet-cpp[version='1.1.*|1.2.*|1.3.*|1.4.*|1.4.0.*|1.5.0.pre.*|1.5.1.*|1.1.0|1.1.0.post|1.2.0.pre|1.4.0|>=1.4.0,<1.5.0a0']
+Package openssl conflicts for:
+python[version='>=3'] -> openssl[version='1.0.*|1.0.*,>=1.0.2l,<1.0.3a|>=1.0.2m,<1.0.3a|>=1.0.2n,<1.0.3a|>=1.0.2o,<1.0.3a|>=1.0.2p,<1.0.3a|>=1.1.1a,<1.1.2a|>=1.1.1b,<1.1.2a|>=1.1.1c,<1.1.2a|>=1.1.1d,<1.1.2a|>=1.1.1e,<1.1.2a|>=1.1.1f,<1.1.2a|>=1.1.1g,<1.1.2a|>=1.1.1h,<1.1.2a|>=1.1.1i,<1.1.2a|>=1.1.1j,<1.1.2a|>=1.1.1k,<1.1.2a']
+pysam[version='>0.10.0.0'] -> openssl[version='>=1.1.1g,<1.1.2a|>=1.1.1j,<1.1.2a|>=1.1.1k,<1.1.2a']
+Package libcblas conflicts for:
+scipy -> libcblas[version='>=3.8.0,<4.0a0']
+numpy -> libcblas[version='>=3.8.0,<4.0a0']
+Package libstdcxx-ng conflicts for:
+numpy -> libstdcxx-ng[version='>=4.9|>=7.3.0']
+biopython -> libstdcxx-ng[version='>=7.2.0']
+scipy -> libstdcxx-ng[version='>=4.9|>=7.2.0|>=7.3.0|>=7.5.0|>=9.3.0']
+pyarrow -> libstdcxx-ng[version='>=4.9|>=7.2.0|>=7.3.0|>=7.5.0|>=9.3.0']
+pandas[version='>=1.1.0'] -> libstdcxx-ng[version='>=7.3.0|>=7.5.0|>=9.3.0']
+python[version='>=3'] -> libstdcxx-ng[version='>=4.9|>=7.2.0|>=7.3.0|>=7.5.0|>=9.3.0']
+Package mmtf-python conflicts for:
+biopython -> mmtf-python
+Package numpy conflicts for:
+nanomath[version='>=1.2.1'] -> numpy[version='>1.8']
+biopython -> numpy[version='1.10.*|1.11.*|1.12.*|1.13.*|>=1.11.3,<2.0a0|>=1.14.1,<2.0a0|>=1.8|>=1.9.3,<2.0a0']
+pandas[version='>=1.1.0'] -> numpy[version='>=1.15.4,<2.0a0|>=1.16.5,<2.0a0|>=1.16.6,<2.0a0|>=1.17.5,<2.0a0|>=1.18.5,<2.0a0|>=1.19.2,<2.0a0|>=1.19.4,<2.0a0|>=1.19.5,<2.0a0|>=1.20.2,<2.0a0']
+nanoget[version='>=1.14.0'] -> numpy
+pyarrow -> numpy[version='1.10.*|1.11.*|1.12.*|1.13.*|>=1.10|>=1.10,<1.20.0a0|>=1.11,<2.0a0|>=1.11.3,<2.0a0|>=1.14,<1.20.0a0|>=1.14,<2.0a0|>=1.15.2,<2.0a0|>=1.15.3,<2.0a0|>=1.16,<1.20.0a0|>=1.16,<2.0a0|>=1.16.6,<2.0a0|>=1.17.5,<2.0a0|>=1.19.5,<2.0a0']
+scipy -> numpy[version='1.10.*|1.11.*|1.12.*|1.13.*|>=1.11|>=1.11.3,<2.0a0|>=1.14.6,<2.0a0|>=1.15.1,<2.0a0|>=1.16.5,<2.0a0|>=1.16.6,<2.0a0|>=1.17.5,<2.0a0|>=1.18.1,<2.0a0|>=1.18.5,<2.0a0|>=1.19.2,<2.0a0|>=1.19.4,<2.0a0|>=1.19.5,<2.0a0|>=1.9|>=1.9.3,<2.0a0']
+Package python_abi conflicts for:
+pyarrow -> python_abi[version='3.6.*|3.7.*|3.8.*|3.9.*',build='*_cp39|*_cp38|*_cp37m|*_cp36m']
+pysam[version='>0.10.0.0'] -> python_abi[version='2.7.*|3.6.*|3.7.*|3.8.*|3.9.*',build='*_cp38|*_cp27mu|*_cp36m|*_cp37m|*_cp39']
+biopython -> python_abi[version='3.6|3.6.*|3.7.*|3.8.*|3.9.*|3.7',build='*_cp39|*_cp38|*_cp37m|*_cp36m|*_pypy36_pp73|*_pypy37_pp73']
+scipy -> python_abi[version='3.6|3.6.*|3.7.*|3.8.*|3.9.*|3.7',build='*_cp39|*_cp38|*_cp37m|*_cp36m|*_pypy36_pp73|*_pypy37_pp73']
+python-dateutil -> python_abi=[build='*_cp35m|*_cp34m|*_cp27mu|*_cp36m']
+python[version='>=3'] -> python_abi[version='*|*|*|*|*|3.6.*|3.7.*|3.8.*|3.9.*',build='*_cp35m|*_cp39|*_cp38|*_cp37m|*_cp36m|*_cp34m|*_cp36m|*_cp37m|*_cp38']
+numpy -> python_abi[version='3.6|3.6.*|3.7.*|3.8.*|3.9.*|3.7',build='*_cp39|*_cp38|*_cp37m|*_cp36m|*_pypy36_pp73|*_pypy37_pp73']
+pandas[version='>=1.1.0'] -> python_abi[version='3.6|3.6.*|3.7.*|3.8.*|3.9.*|3.7',build='*_cp39|*_cp38|*_cp37m|*_cp36m|*_pypy36_pp73|*_pypy37_pp73']
+Package six conflicts for:
+pyarrow -> six
+python-dateutil -> six[version='>=1.5']
+plotly[version='>=4.9.0'] -> six==1.15.0
+Package pypy3.6 conflicts for:
+pandas[version='>=1.1.0'] -> pypy3.6[version='>=7.3.2']
+scipy -> pypy3.6[version='>=7.3.1|>=7.3.2']
+python[version='>=3'] -> pypy3.6[version='7.3.0.*|7.3.1.*|7.3.2.*|7.3.3.*']
+numpy -> pypy3.6[version='>=7.3.1|>=7.3.2|>=7.3.3']
+biopython -> pypy3.6[version='>=7.3.1|>=7.3.2|>=7.3.3']
+Package numexpr conflicts for:
+pandas[version='>=1.1.0'] -> numexpr[version='>=2.6.8']
+Package numpy-base conflicts for:
+numpy -> numpy-base[version='1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.11.3|1.17.2.*|1.17.3.*|1.17.4.*|1.18.1.*|1.18.5.*|1.14.3|1.14.3|1.14.3|1.14.3|1.14.3|1.14.3|1.14.4|1.14.4|1.14.4|1.14.4|1.14.4|1.14.4|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.5|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.14.6|1.15.0|1.15.0|1.15.0|1.15.0|1.15.0|1.15.0|1.15.0|1.15.0|1.15.1|1.15.1|1.15.1|1.15.1|1.15.1|1.15.1|1.15.1|1.15.1|1.15.1|1.15.1|1.15.1|1.15.1|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.2|1.15.3|1.15.3|1.15.3|1.15.3|1.15.3|1.15.3|1.15.4|1.15.4|1.15.4|1.15.4|1.15.4|1.15.4|1.15.4|1.15.4|1.15.4|1.16.0|1.16.0|1.16.0|1.16.0|1.16.0|1.16.0|1.16.0|1.16.0|1.16.0|1.16.0|1.16.0|1.16.0|1.16.1|1.16.1|1.16.1|1.16.1|1.16.1|1.16.1|1.16.1|1.16.1|1.16.1|1.16.1|1.16.1|1.16.1|1.16.2|1.16.2|1.16.2|1.16.2|1.16.2|1.16.2|1.16.3|1.16.3|1.16.3|1.16.3|1.16.3|1.16.3|1.16.4|1.16.4|1.16.4|1.16.4|1.16.4|1.16.4|1.16.5|1.16.5|1.16.5|1.16.5|1.16.5|1.16.5|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.16.6|1.17.0|1.17.0|1.17.0|1.17.0|1.19.1|1.19.1|1.19.1|1.19.1|1.19.1|1.19.1|1.19.2|1.19.2|1.19.2|1.19.2|1.19.2|1.19.2|1.19.2|1.19.2|1.20.1|1.20.1|1.20.1|1.20.1|1.20.1|1.20.1|1.20.2|1.20.2|1.20.2|1.20.2|1.20.2|1.20.2|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|1.9.3|>=1.9.3,<2.0a0',build='py37hdbf6ddf_7|py37h2b20989_6|py36hdbf6ddf_7|py35hdbf6ddf_7|py27hdbf6ddf_7|py39hfae3a4d_0|py39he2ba247_0|py38hfae3a4d_0|py37hfae3a4d_0|py39h34387ca_0|py38h34387ca_0|py37h34387ca_0|py38hfa32c7d_0|py38h75fe3a5_0|py37h75fe3a5_0|py36h75fe3a5_0|py38hfa32c7d_0|py38h75fe3a5_0|py37h75fe3a5_0|py37h2f8d375_0|py36h2f8d375_0|py39h76555f2_1|py39h41b4c56_3|py38h2f8d375_0|py37hdc34a94_3|py37h41b4c56_3|py37h2f8d375_0|py36hde5b4d6_0|py27hde5b4d6_0|py36hde5b4d6_0|py37hde5b4d6_1|py37hde5b4d6_0|py37h2f8d375_1|py37h2f8d375_0|py36hde5b4d6_1|py36h2f8d375_1|py36h2f8d375_0|py37hde5b4d6_1|py36h2f8d375_1|py37h2f8d375_0|py36hde5b4d6_0|py27h81de0dd_0|py37h2f8d375_0|py36h81de0dd_0|py37h81de0dd_0|py36h2f8d375_1|py35h81de0dd_0|py35h2f8d375_0|py37h81de0dd_0|py36h81de0dd_0|py36h2f8d375_0|py35h81de0dd_0|py27h74e8950_0|py37h7cdd4dd_0|py37h3dfced4_0|py36h7cdd4dd_0|py27h3dfced4_0|py38hde5b4d6_4|py37hde5b4d6_5|py36h2f8d375_4|py27h2f8d375_5|py37hdbf6ddf_2|py37hdbf6ddf_1|py37h2b20989_4|py37h2b20989_3|py37h2b20989_2|py37h2b20989_1|py36hdbf6ddf_3|py36hdbf6ddf_1|py36h2b20989_4|py36h2b20989_2|py36h2b20989_1|py35hdbf6ddf_4|py35hdbf6ddf_0|py27hdbf6ddf_3|py27hdbf6ddf_2|py27hdbf6ddf_0|py27h2b20989_3|py27h2b20989_1|py36h9be14a7_1|py35h0ea5e3f_1|py38hde5b4d6_12|py37hde5b4d6_12|py37hdbf6ddf_8|py37hdbf6ddf_7|py37h81de0dd_10|py37h74e8950_9|py37h2f8d375_12|py37h2f8d375_11|py37h2f8d375_10|py37h2b20989_8|py37h2b20989_7|py36hde5b4d6_12|py36hde5b4d6_11|py36h7cdd4dd_9|py36h74e8950_9|py36h74e8950_10|py36h2b20989_7|py35hdbf6ddf_8|py35h81de0dd_9|py35h7cdd4dd_9|py35h74e8950_10|py35h3dfced4_9|py35h2b20989_8|py27hde5b4d6_11|py27hdbf6ddf_8|py27hdbf6ddf_7|py27h81de0dd_9|py27h74e8950_10|py27h3dfced4_9|py27h2f8d375_12|py27h2f8d375_11|py27h2b20989_8|py27h2b20989_7|py27h2f8d375_10|py27h74e8950_9|py27h7cdd4dd_9|py27h81de0dd_10|py27hde5b4d6_12|py35h2f8d375_10|py35h74e8950_9|py35h81de0dd_10|py36h2b20989_8|py36h2f8d375_10|py36h2f8d375_11|py36h2f8d375_12|py36h3dfced4_9|py36h81de0dd_10|py36h81de0dd_9|py36hdbf6ddf_7|py36hdbf6ddf_8|py37h3dfced4_9|py37h74e8950_10|py37h7cdd4dd_9|py37h81de0dd_9|py37hde5b4d6_11|py38h2f8d375_12|py27h0ea5e3f_1|py27h9be14a7_1|py35h9be14a7_1|py36h0ea5e3f_1|py27h2b20989_0|py27hdbf6ddf_0|py35h2b20989_0|py35hdbf6ddf_0|py36h2b20989_0|py36hdbf6ddf_0|py27h2b20989_0|py27h2b20989_2|py27h2b20989_4|py27hdbf6ddf_1|py27hdbf6ddf_4|py35h2b20989_4|py36h2b20989_0|py36h2b20989_3|py36hdbf6ddf_0|py36hdbf6ddf_2|py36hdbf6ddf_4|py37hdbf6ddf_3|py37hdbf6ddf_4|py27h2f8d375_4|py27h81de0dd_4|py27hde5b4d6_5|py35h2f8d375_4|py35h81de0dd_4|py36h2f8d375_5|py36h81de0dd_4|py36hde5b4d6_5|py37h2f8d375_4|py37h2f8d375_5|py37h81de0dd_4|py38h2f8d375_4|py27h7cdd4dd_0|py35h3dfced4_0|py35h7cdd4dd_0|py36h3dfced4_0|py27h2f8d375_0|py27h81de0dd_0|py35h2f8d375_0|py35h74e8950_0|py36h74e8950_0|py37h2f8d375_0|py37h74e8950_0|py27h2f8d375_0|py27h2f8d375_1|py27h81de0dd_0|py27h81de0dd_1|py36h2f8d375_0|py36h81de0dd_0|py36h81de0dd_1|py37h2f8d375_0|py37h2f8d375_1|py37h81de0dd_1|py27h2f8d375_0|py27h81de0dd_0|py36h2f8d375_0|py37h81de0dd_0|py27h2f8d375_0|py27hde5b4d6_0|py36h2f8d375_0|py36h81de0dd_0|py37h81de0dd_0|py37hde5b4d6_0|py27h2f8d375_0|py27h2f8d375_1|py27hde5b4d6_0|py27hde5b4d6_1|py36h2f8d375_0|py36hde5b4d6_0|py36hde5b4d6_1|py37h2f8d375_0|py37h2f8d375_1|py37hde5b4d6_0|py27h2f8d375_0|py27h2f8d375_1|py27hde5b4d6_0|py27hde5b4d6_1|py36hde5b4d6_0|py27h2f8d375_0|py27hde5b4d6_0|py36h2f8d375_0|py37h2f8d375_0|py37hde5b4d6_0|py27h2f8d375_0|py36h2f8d375_0|py37h2f8d375_0|py37hde5b4d6_0|py27h2f8d375_0|py27hde5b4d6_0|py36h2f8d375_0|py36hde5b4d6_0|py37h2f8d375_0|py37hde5b4d6_0|py27h2f8d375_0|py27hde5b4d6_0|py36h2f8d375_0|py36hde5b4d6_0|py37hde5b4d6_0|py27h2f8d375_0|py27hde5b4d6_0|py36h2f8d375_0|py36h41b4c56_3|py36hdc34a94_3|py36hde5b4d6_0|py37h2f8d375_0|py37hde5b4d6_0|py38h41b4c56_3|py38hdc34a94_3|py38hde5b4d6_0|py39hdc34a94_3|py39hfb011de_1|py36hde5b4d6_0|py37hde5b4d6_0|py36h75fe3a5_0|py36hfa32c7d_0|py37hfa32c7d_0|py36hfa32c7d_0|py37hfa32c7d_0|py39h0f7b65f_0|py39h2ae0177_0|py37h7d8b39e_0|py38h7d8b39e_0|py39h7d8b39e_0|py37he2ba247_0|py38he2ba247_0|py27h2b20989_6|py27h2b20989_7|py27hdbf6ddf_6|py35h2b20989_7|py36h2b20989_6|py36h2b20989_7|py36hdbf6ddf_6|py37h2b20989_7|py37hdbf6ddf_6']
+Package * conflicts for:
+numpy -> *[track_features=blas_openblas]
+scipy -> *[track_features=blas_openblas]
+Package pandas conflicts for:
+pyarrow -> pandas
+nanomath[version='>=1.2.1'] -> pandas
+nanoget[version='>=1.14.0'] -> pandas[version='>=0.22.0']
+Package bcftools conflicts for:
+pysam[version='>0.10.0.0'] -> bcftools[version='1.5.*|1.6.*|1.7.*|1.9.*|1.6|>=1.4,<1.5|>=1.4.1|>=1.4.1,<1.5']
+Package ncurses conflicts for:
+python[version='>=3'] -> ncurses[version='5.9|5.9.*|6.0.*|>=6.0,<7.0a0|>=6.1,<6.3.0a0|>=6.1,<7.0a0|>=6.2,<6.3.0a0|>=6.2,<7.0a0']
+Package grpc-cpp conflicts for:
+pyarrow -> grpc-cpp[version='>=1.26.0,<1.27.0a0']
+Package libblas conflicts for:
+scipy -> libblas[version='>=3.8.0,<4.0a0']
+numpy -> libblas[version='>=3.8.0,<4.0a0']
+Package readline conflicts for:
+python[version='>=3'] -> readline[version='6.2.*|7.*|7.0|>=7.0,<8.0a0|>=8.0,<9.0a0|>=8.1,<9.0a0']
+Package gflags conflicts for:
+pyarrow -> gflags
+Package mkl-service conflicts for:
+numpy -> mkl-service[version='>=2,<3.0a0|>=2.3.0,<3.0a0']
+scipy -> mkl-service[version='>=2,<3.0a0|>=2.3.0,<3.0a0']
+Package mkl_fft conflicts for:
+numpy -> mkl_fft[version='>=1.0.14,<2.0a0|>=1.0.4|>=1.0.6,<2.0a0|>=1.2.1,<2.0a0']
+Package arrow-cpp-proc conflicts for:
+pyarrow -> arrow-cpp-proc=[build='cuda|cpu']
+Package kaleido-core conflicts for:
+python-kaleido -> kaleido-core[version='0.1.0.*|0.1.0a5.*|0.2.0.*|0.2.1.*']
+Package curl conflicts for:
+pysam[version='>0.10.0.0'] -> curl[version='>=7.59.0,<8.0a0|>=7.64.0,<8.0a0|>=7.64.1,<8.0a0|>=7.69.1,<8.0a0|>=7.71.1,<8.0a0|>=7.76.0,<8.0a0']
+Package mkl conflicts for:
+scipy -> mkl[version='>=2018.0.0,<2019.0a0|>=2018.0.2,<2019.0a0|>=2018.0.3,<2019.0a0|>=2019.1,<2021.0a0|>=2019.4,<2021.0a0|>=2021.2.0,<2022.0a0']
+numpy -> mkl[version='>=2018.0.0,<2019.0a0|>=2018.0.1,<2019.0a0|>=2018.0.2,<2019.0a0|>=2018.0.3,<2019.0a0|>=2019.1,<2021.0a0|>=2019.3,<2021.0a0|>=2019.4,<2020.0a0|>=2019.4,<2021.0a0|>=2021.2.0,<2022.0a0']
+Package boost-cpp conflicts for:
+pyarrow -> boost-cpp[version='>=1.68.0,<1.68.1.0a0|>=1.70.0,<1.70.1.0a0|>=1.72.0,<1.72.1.0a0|>=1.74.0,<1.74.1.0a0']
+Package sqlite conflicts for:
+python[version='>=3'] -> sqlite[version='3.13.*|3.20.*|3.9.*|>=3.20.1,<4.0a0|>=3.22.0,<4.0a0|>=3.23.1,<4.0a0|>=3.24.0,<4.0a0|>=3.25.1,<4.0a0|>=3.25.2,<4.0a0|>=3.25.3,<4.0a0|>=3.26.0,<4.0a0|>=3.27.2,<4.0a0|>=3.28.0,<4.0a0|>=3.29.0,<4.0a0|>=3.30.0,<4.0a0|>=3.30.1,<4.0a0|>=3.31.1,<4.0a0|>=3.32.3,<4.0a0|>=3.33.0,<4.0a0|>=3.34.0,<4.0a0|>=3.35.4,<4.0a0|>=3.35.5,<4.0a0|>=3.36.0,<4.0a0']
+Package nanomath conflicts for:
+nanoget[version='>=1.14.0'] -> nanomath
+Package retrying conflicts for:
+plotly[version='>=4.9.0'] -> retrying[version='>=1.3.3']
+Package libgfortran5 conflicts for:
+scipy -> libgfortran5[version='>=9.3.0']
+Package libopenblas conflicts for:
+numpy -> libopenblas[version='>=0.2.20,<0.2.21.0a0|>=0.3.2,<0.3.3.0a0|>=0.3.3,<1.0a0']
+scipy -> libopenblas[version='>=0.2.20,<0.2.21.0a0|>=0.3.2,<0.3.3.0a0|>=0.3.3,<1.0a0']
+Package samtools conflicts for:
+pysam[version='>0.10.0.0'] -> samtools[version='1.5.*|1.6.*|1.7.*|1.9.*|1.7|>=1.4,<1.5|>=1.4.1|>=1.4.1,<1.5']
+Package libgfortran4 conflicts for:
+scipy -> libgfortran4[version='>=7.5.0']
+Package deprecated conflicts for:
+nanomath[version='>=1.2.1'] -> deprecated
+Package setuptools conflicts for:
+plotly[version='>=4.9.0'] -> setuptools
+pyarrow -> setuptools
+Package python-dateutil conflicts for:
+pandas[version='>=1.1.0'] -> python-dateutil[version='>=2.7.3']
+Package biopython conflicts for:
+nanoget[version='>=1.14.0'] -> biopython
+Package pip conflicts for:
+python[version='>=3'] -> pip
+Package xz conflicts for:
+pysam[version='>0.10.0.0'] -> xz[version='>=5.2.4,<5.3.0a0|>=5.2.5,<5.3.0a0']
+python[version='>=3'] -> xz[version='5.0.*|5.2.*|>=5.2.3,<5.3.0a0|>=5.2.3,<6.0a0|>=5.2.4,<5.3.0a0|>=5.2.4,<6.0a0|>=5.2.5,<5.3.0a0|>=5.2.5,<6.0a0']
+Package tenacity conflicts for:
+plotly[version='>=4.9.0'] -> tenacity[version='>=6.2.0']
+Package blas conflicts for:
+scipy -> blas[version='*|*|1.0|1.1',build='openblas|mkl|openblas|mkl|openblas']
+numpy -> blas[version='*|*|1.0|1.1',build='openblas|mkl|openblas|mkl|openblas']
+Package reportlab conflicts for:
+biopython -> reportlab
+Package pytz conflicts for:
+pandas[version='>=1.1.0'] -> pytz[version='>=2017.2|>=2017.3']
+Package libgcc conflicts for:
+pysam[version='>0.10.0.0'] -> libgcc
+scipy -> libgcc
+Package snappy conflicts for:
+pyarrow -> snappy
+Package openblas conflicts for:
+numpy -> openblas[version='0.2.18.*|0.2.18|0.2.18.*|0.2.19|0.2.19.*|0.2.20|0.2.20.*|>=0.2.15|>=0.2.20,<0.2.21.0a0|>=0.3.3,<0.3.4.0a0']
+scipy -> openblas[version='0.2.18.*|0.2.18|0.2.18.*|0.2.19|0.2.19.*|0.2.20|0.2.20.*|>=0.2.20,<0.2.21.0a0|>=0.3.3,<0.3.4.0a0']
+Package bottleneck conflicts for:
+pandas[version='>=1.1.0'] -> bottleneck[version='>=1.2.1']
+Package tk conflicts for:
+python[version='>=3'] -> tk[version='8.5.*|8.6.*|>=8.6.10,<8.7.0a0|>=8.6.7,<8.7.0a0|>=8.6.8,<8.7.0a0|>=8.6.9,<8.7.0a0']
+Package libcurl conflicts for:
+pysam[version='>0.10.0.0'] -> libcurl[version='>=7.69.1,<8.0a0|>=7.71.1,<8.0a0|>=7.75.0,<8.0a0']
+Package arrow-cpp conflicts for:
+pyarrow -> arrow-cpp[version='0.10.0.*|0.11.0.*|0.11.1.*|0.3.*|0.4.*|0.5.*|0.6.*|0.7.*|0.9.0.*|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.17.1|0.4.1|0.7.1|0.8.0|0.9.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.0|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|1.0.1|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|2.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|3.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.0|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|4.0.1|0.11.1.*,>=0.11.1,<0.12.0a0|0.12.0.*,>=0.12.0,<0.13.0a0|0.16.0,>=0.16.0,<0.16.1.0a0|0.16.0,>=0.16.0,<0.16.1.0a0|>=0.11.0,<0.12.0a0|>=0.11.1,<0.12.0a0|>=0.12.0,<0.13.0a0,>=0.12.0,<1.0a0|>=0.12.1,<0.13.0a0,>=0.12.1,<1.0a0|>=0.13.0,<0.14.0a0,>=0.13.0,<1.0a0|>=0.14.0,<0.15.0a0,>=0.14.0,<1.0a0|>=0.14.1,<0.15.0a0,>=0.14.1,<1.0a0|>=0.15.0,<0.16.0a0,>=0.15.0,<1.0a0|>=0.15.1,<0.15.2.0a0|>=0.15.1,<0.15.2.0a0,>=0.15.1,<1.0a0|>=0.15.1,<0.16.0a0,>=0.15.1,<1.0a0|>=0.16.0,<0.16.1.0a0|>=0.17.0,<0.17.1.0a0|>=0.17.1,<0.17.2.0a0|>=0.9.0,<0.10.0a0|>=2.0.0,<2.0.1.0a0,>=2.0.0,<3.0a0|>=3.0.0,<3.0.1.0a0,>=3.0.0,<4.0a0|>=4.0.1,<4.0.2.0a0,>=4.0.1,<5.0a0',build='*cuda|py39hebef4ed_0_cuda|py38hf0991f3_4_cuda|py38hb823b37_3_cuda|py38hb823b37_2_cuda|py38h7d5ba57_2_cpu|py38h4710c81_4_cpu|py37hf6de211_0_cuda|py37h6dd33a6_3_cuda|py37h6dd33a6_2_cuda|py37h6a8ff91_1_cpu|py37h628fdca_0_cpu|py37h3d702e5_4_cpu|py36h1d14725_3_cuda|py36h1d14725_2_cuda|py36h1719d87_1_cuda|py36h16163aa_4_cpu|py39hf708d6b_2_cpu|py39hebef4ed_6_cuda|py39he5902de_3_cuda|py39hc7392d0_5_cuda|py39hc01457c_5_cpu|py39ha0f7f45_0_cuda|py39h6ac3dd5_3_cpu|py39h3f173ad_1_cpu|py38hdd734cb_3_cuda|py38hdcf1ecb_5_cuda|py38ha12db41_1_cpu|py38h9018dff_0_cuda|py38h739bc47_4_cuda|py38h5af5422_6_cpu|py38h27527b3_1_cuda|py37hf6de211_6_cuda|py37he850b76_2_cuda|py37he4eac6b_0_cpu|py37hb0013f2_4_cpu|py37h9348117_1_cuda|py37h8ec0733_5_cuda|py37h628fdca_6_cpu|py37h5d6dc83_5_cpu|py37h363ccdf_0_cuda|py37h1686cbf_2_cpu|py36hf02d6d2_4_cuda|py36hea504be_0_cuda|py36hc2d3564_6_cpu|py36h1fef78f_4_cpu|py39hfea9332_0_cuda|py39hf601f63_9_cuda|py39he5902de_13_cuda|py39he22c4ef_17_cuda|py39hd27c569_3_cuda|py39hc8d86d0_1_cuda|py39hbed7f4b_19_cpu|py39h9e24ad6_12_cuda|py39h96e570c_17_cpu|py39h91c9982_18_cuda|py39h881cbb8_18_cpu|py39h817929d_11_cpu|py39h7103aab_2_cuda|py39h6ac3dd5_13_cpu|py39h4400fed_0_cpu|py39h4365511_4_cuda|py39h3158790_7_cuda|py39h2b052d6_12_cpu|py39h29ecc89_19_cuda|py39h1917775_4_cpu|py38hec61f9c_2_cuda|py38hdcf1ecb_15_cuda|py38hd89adc7_5_cuda|py38hcd31099_17_cuda|py38hcc56f6c_9_cuda|py38hbe6e8eb_4_cpu|py38hb823b37_18_cuda|py38hb6307c1_5_cpu|py38haba3bca_0_cuda|py38ha929607_4_cuda|py38h9c57b62_7_cuda|py38h9c57b62_6_cuda|py38h8b75bcf_12_cpu|py38h6da0e5f_9_cpu|py38h5d4dd6c_10_cuda|py38h5af5422_16_cpu|py38h4710c81_19_cpu|py38h45d1fa8_2_cpu|py38h3c944c8_12_cuda|py38h3604210_1_cpu|py38h2dc7577_0_cpu|py38h2b3ae1c_3_cpu|py38h2934018_3_cuda|py38h1ee4e12_8_cuda|py38h14434a2_6_cpu|py38h0f34dee_16_cuda|py37hffab67d_7_cuda|py37hf6de211_16_cuda|py37hf681485_13_cpu|py37hebc1fde_7_cpu|py37hd3f226e_0_cpu|py37hb84ec65_5_cuda|py37hb133d9b_13_cuda|py37hac2aefd_18_cpu|py37ha76e1b8_12_cpu|py37ha662590_1_cpu|py37h9f96ef5_8_cpu|py37h80ad574_5_cpu|py37h7186843_14_cuda|py37h6dd33a6_18_cuda|py37h628fdca_16_cpu|py37h5d6dc83_15_cpu|py37h580f105_17_cuda|py37h43f4869_9_cuda|py37h3fdca3a_10_cpu|py37h3d702e5_19_cpu|py37h12de995_2_cpu|py37h0f12f01_10_cuda|py37h0d899e7_4_cuda|py37h0a26580_3_cuda|py36he989ed0_7_cuda|py36he989ed0_6_cuda|py36hdd21ac3_8_cpu|py36hd9a2069_0_cuda|py36hd786058_5_cuda|py36hbe3617a_15_cpu|py36hb8f98c9_8_cuda|py36h9e76246_0_cpu|py36h999649b_2_cpu|py36h97664ed_12_cuda|py36h6d5ba95_6_cpu|py36h68da3bf_1_cpu|py36h656a89e_9_cuda|py36h523b68b_12_cpu|py36h1fef78f_14_cpu|py36h1719d87_17_cuda|py36h0c733d3_13_cpu|py36h05ed7cb_2_cuda|py39hfea9332_22_cuda|py39hfea9332_21_cuda|py39hfea9332_20_cuda|py39hf786f67_6_cuda|py39hf601f63_30_cuda|py39hee0d0d0_24_cpu|py39he5902de_35_cuda|py39he22c4ef_39_cuda|py39hdb51910_33_cuda|py39hd7c0f73_3_cuda|py39hd258a64_3_cpu|py39hca3a504_14_cpu|py39hca3a504_13_cpu|py39hca3a504_12_cpu|py39hc8d86d0_23_cuda|py39hc7392d0_37_cuda|py39ha0f7f45_32_cuda|py39h9f551a0_11_cuda|py39h9ca3d13_19_cuda|py39h9ca3d13_18_cuda|py39h963893d_2_cuda|py39h8ba8b8a_23_cpu|py39h881cbb8_40_cpu|py39h817929d_32_cpu|py39h810d191_3_cuda|py39h6ac3dd5_35_cpu|py39h60f9d44_1_cuda|py39h5894ca3_15_cpu|py39h532cce1_15_cuda|py39h482077d_3_cpu|py39h443057c_25_cpu|py39h4400fed_22_cpu|py39h4400fed_21_cpu|py39h4400fed_20_cpu|py39h4365511_26_cuda|py39h3fcf7f4_36_cuda|py39h3f173ad_33_cpu|py39h3ec99f0_6_cpu|py39h3607a36_27_cpu|py39h3158790_28_cuda|py39h29ecc89_41_cuda|py39h25d2c69_2_cpu|py39h1f788f4_38_cpu|py39h1f446b9_8_cuda|py39h1917775_26_cpu|py39h11a0f40_34_cuda|py39h0cfd5ab_31_cpu|py39h0bb8766_8_cpu|py39h0bb8766_7_cpu|py38hf0991f3_41_cuda|py38hef3fe07_7_cpu|py38hec61f9c_24_cuda|py38head770f_4_cuda|py38hda6405d_3_cuda|py38hd89adc7_27_cuda|py38hd83f785_34_cuda|py38hce73ba9_1_cpu|py38hcd31099_39_cuda|py38hbfecb28_0_cpu|py38hbe6e8eb_26_cpu|py38hb659564_13_cpu|py38hb6307c1_27_cpu|py38hb29ae7f_7_cuda|py38haba3bca_22_cuda|py38haba3bca_21_cuda|py38ha929607_26_cuda|py38ha45f3c2_17_cuda|py38h91dcb4e_5_cpu|py38h8652a92_6_cuda|py38h8084e0b_16_cpu|py38h739bc47_36_cuda|py38h72c99be_2_cuda|py38h6da0e5f_30_cpu|py38h6873432_0_cuda|py38h5f372ab_34_cpu|py38h5e2fc6d_29_cpu|py38h5d4dd6c_31_cuda|py38h5af5422_38_cpu|py38h470486d_16_cuda|py38h452d5b5_11_cuda|py38h452d5b5_10_cuda|py38h3d2054c_3_cuda|py38h3d0fbbc_23_cuda|py38h3604210_23_cpu|py38h32194cf_8_cuda|py38h2dc7577_22_cpu|py38h2dc7577_21_cpu|py38h2dc7577_20_cpu|py38h27527b3_33_cuda|py38h1ee4e12_29_cuda|py38h1d7a6cc_39_cpu|py38h14434a2_28_cpu|py38h140c071_31_cpu|py38h0f34dee_38_cuda|py38h0cf303d_3_cuda|py38h020a5e6_11_cpu|py38h020a5e6_10_cpu|py37hf6de211_38_cuda|py37hf304829_2_cpu|py37hebc1fde_28_cpu|py37he4eac6b_32_cpu|py37he1a5911_16_cuda|py37hddffdf7_33_cpu|py37hdace21e_3_cpu|py37hd595375_10_cpu|py37hd56db8c_6_cuda|py37hd50fff1_25_cpu|py37hd3f226e_21_cpu|py37hd1d2865_0_cuda|py37hc9ed16a_17_cpu|py37hc57592b_23_cuda|py37hc425462_9_cpu|py37hb964363_24_cuda|py37hb84ec65_27_cuda|py37hb133d9b_35_cuda|py37hb0013f2_36_cpu|py37hac41a7a_14_cuda|py37hac41a7a_12_cuda|py37hac2aefd_40_cpu|py37ha1f3b66_2_cuda|py37h9348117_33_cuda|py37h8ec0733_37_cuda|py37h80ad574_27_cpu|py37h6dd33a6_40_cuda|py37h6a8ff91_39_cpu|py37h65f9368_3_cuda|py37h64112e3_19_cpu|py37h628fdca_38_cpu|py37h5d6dc83_37_cpu|py37h5c10f86_19_cuda|py37h580f105_39_cuda|py37h4401457_13_cpu|py37h4401457_12_cpu|py37h433b4ec_0_cpu|py37h417109d_9_cuda|py37h3fdca3a_31_cpu|py37h363ccdf_32_cuda|py37h21220a6_8_cpu|py37h20531c0_41_cuda|py37h12de995_24_cpu|py37h10a6eae_21_cuda|py37h10a6eae_20_cuda|py37h0f12f01_31_cuda|py37h0a26580_25_cuda|py36hf88fb5f_14_cpu|py36hf88fb5f_12_cpu|py36hf02d6d2_36_cuda|py36hef4cdbe_3_cpu|py36hea504be_32_cuda|py36he93ae88_34_cuda|py36hdd21ac3_29_cpu|py36hd9a2069_22_cuda|py36hd9a2069_21_cuda|py36hc5d550b_5_cpu|py36hc5bfc4a_9_cpu|py36hc2d3564_38_cpu|py36hbde7a26_3_cuda|py36hbb8fa93_25_cuda|py36hb8f98c9_29_cuda|py36hafc996c_5_cuda|py36haba16ef_0_cpu|py36h9e76246_22_cpu|py36h9e76246_21_cpu|py36h9ae0879_34_cpu|py36h887e13f_31_cuda|py36h7ebb470_17_cpu|py36h7bb9b0f_25_cpu|py36h78ed856_33_cpu|py36h748683b_23_cuda|py36h6d927e4_8_cuda|py36h656a89e_30_cuda|py36h5cea003_0_cuda|py36h58d86a0_11_cuda|py36h58d86a0_10_cuda|py36h573a39d_26_cpu|py36h5626b07_16_cpu|py36h488aa40_35_cuda|py36h1d14725_40_cuda|py36h1c56110_7_cpu|py36h1afed7a_18_cpu|py36h190550a_15_cpu|py36h1719d87_39_cuda|py36h16163aa_41_cpu|py36h12d82ea_8_cpu|py36h1227495_26_cuda|py36h0c733d3_35_cpu|py36h0c0985d_3_cpu|py36h0624e40_11_cpu|py36h05ed7cb_24_cuda|py39hf708d6b_38_cpu|py39he5902de_39_cuda|py39hdb51910_37_cuda|py39hd914668_40_cpu|py39hd637dbd_17_cuda|py39hce4a3b7_22_cuda|py39hc1c9407_16_cuda|py39had59869_34_cpu|py39ha827d9a_16_cpu|py39h9ca3d13_25_cuda|py39h9a8730c_18_cuda|py39h94dd8ad_23_cuda|py39h91c9982_41_cuda|py39h8ba8b8a_27_cpu|py39h8a6a538_33_cpu|py39h881cbb8_42_cpu|py39h881cbb8_41_cpu|py39h6ac3dd5_39_cpu|py39h5894ca3_21_cpu|py39h5894ca3_20_cpu|py39h532cce1_21_cuda|py39h45628eb_40_cuda|py39h443057c_29_cpu|py39h3f8e037_33_cuda|py39h3607a36_31_cpu|py39h33dc4db_31_cuda|py39h29ecc89_43_cuda|py39h1917775_30_cpu|py39h079600b_14_cuda|py38hef094eb_15_cpu|py38hec61f9c_28_cuda|py38hdd734cb_39_cuda|py38hdbc43ea_10_cuda|py38hd89adc7_31_cuda|py38hd83f785_38_cuda|py38hcc56f6c_34_cuda|py38hb955225_25_cuda|py38hb955225_24_cuda|py38hb823b37_42_cuda|py38hb823b37_41_cuda|py38hb6307c1_31_cpu|py38ha929607_30_cuda|py38ha45f3c2_23_cuda|py38ha12db41_37_cpu|py38h98deded_11_cuda|py38h9444e92_16_cuda|py38h8eafaea_8_cpu|py38h8e6f228_39_cpu|py38h8084e0b_22_cpu|py38h7fd2328_5_cpu|py38h7a562ad_19_cpu|py38h73dfb10_8_cuda|py38h60056d6_4_cpu|py38h60056d6_3_cpu|py38h5e2fc6d_33_cpu|py38h5422213_6_cuda|py38h4710c81_43_cpu|py38h470486d_22_cuda|py38h40c9144_40_cuda|py38h3d78dee_20_cuda|py38h39ad894_13_cpu|py38h370775f_7_cpu|py38h3604210_27_cpu|py38h28ceb69_25_cpu|py38h28ceb69_24_cpu|py38h27527b3_37_cuda|py38h1ff28d0_18_cpu|py38h179f8b4_13_cuda|py38h1234567_2_cuda|py38h1234567_2_cpu|py38h1234567_0_cuda|py38h0ff7fa8_6_cpu|py38h02bc7fd_14_cpu|py37hf99d332_20_cuda|py37hf98b315_34_cpu|py37hf681485_39_cpu|py37hef9f4e4_17_cuda|py37heb3366a_13_cuda|py37he850b76_38_cuda|py37he4eac6b_36_cpu|py37he1a5911_22_cuda|py37hd3f226e_26_cpu|py37hc9ed16a_23_cpu|py37hc57592b_27_cuda|py37hc546411_18_cuda|py37hc02b082_21_cpu|py37hba2c710_12_cuda|py37hb1c28b1_16_cpu|py37hb1c28b1_15_cpu|py37hb17aa48_4_cuda|py37hac2aefd_41_cpu|py37haa335b2_40_cuda|py37ha662590_27_cpu|py37h9631afc_16_cuda|py37h9434447_6_cuda|py37h8f25736_7_cpu|py37h8c03bf9_3_cpu|py37h80ad574_31_cpu|py37h6dd33a6_42_cuda|py37h64112e3_25_cpu|py37h64112e3_24_cpu|py37h5fdbd09_40_cpu|py37h5d614b3_11_cuda|py37h44fb43e_17_cpu|py37h43f4869_34_cuda|py37h43ced11_11_cpu|py37h433b4ec_14_cpu|py37h427073d_18_cpu|py37h40e8e51_14_cpu|py37h3d702e5_43_cpu|py37h363ccdf_36_cuda|py37h303cea5_6_cpu|py37h28b1ae4_8_cuda|py37h271258c_19_cuda|py37h2318771_14_cuda|py37h15320b0_3_cuda|py37h1234567_2_cuda|py37h1234567_2_cpu|py37h1234567_1_cuda|py37h10a6eae_26_cuda|py37h0d899e7_30_cuda|py37h08d73b4_33_cuda|py37h0161837_30_cpu|py36hf80f262_13_cuda|py36hf729b52_5_cpu|py36hf717c8c_37_cuda|py36he989ed0_32_cuda|py36he87646c_4_cuda|py36he7e951c_20_cuda|py36he3d603d_10_cuda|py36hdd21ac3_33_cpu|py36hd786058_31_cuda|py36hd0ee5a9_17_cpu|py36hc6da205_8_cuda|py36hbc5a564_19_cuda|py36hbb8fa93_29_cuda|py36hb9971dd_8_cpu|py36hb8f98c9_33_cuda|py36hb73f93d_23_cuda|py36hb5dd165_36_cpu|py36h8995fb8_40_cuda|py36h887e13f_35_cuda|py36h853ddae_7_cuda|py36h7ce63eb_6_cpu|py36h7a023a4_22_cuda|py36h78ed856_37_cpu|py36h656a89e_34_cuda|py36h5e69851_17_cuda|py36h5cea003_14_cuda|py36h573a39d_30_cpu|py36h551af5b_15_cpu|py36h54f7792_25_cuda|py36h54f7792_24_cuda|py36h526289e_4_cpu|py36h526289e_3_cpu|py36h488aa40_39_cuda|py36h47a4cc6_18_cpu|py36h426ebad_12_cpu|py36h36b1530_14_cpu|py36h1d14725_42_cuda|py36h1afed7a_25_cpu|py36h1afed7a_24_cpu|py36h190550a_21_cpu|py36h190550a_20_cpu|py36h16163aa_43_cpu|py36h1234567_0_cuda|py36h0c733d3_39_cpu|py36h0c458ad_34_cpu|py36h03f38b6_9_cpu|py36h032506a_10_cpu|py36h0218259_9_cuda|py38h1234567_2_cpu|py38h1234567_1_cpu|py38h1234567_0_cpu|py36h1234567_2_cuda|py36h1234567_1_cuda|py36h1234567_1_cpu|py36h1234567_0_cuda|py36h1234567_0_cpu|py39hff3d629_31_cpu|py38hddcb606_21_cpu|py38ha67e4a6_31_cpu|py38h9aebab8_24_cpu|py38h6ad4ccb_19_cpu|py38h5bacaad_22_cuda|py38h1e7856c_27_cpu|py38h1234567_9_cpu|py38h1234567_8_cuda|py38h1234567_8_cpu|py38h1234567_6_cuda|py38h1234567_6_cpu|py38h1234567_5_cpu|py38h1234567_14_cpu|py38h1234567_13_cuda|py38h1234567_11_cuda|py38h1234567_10_cpu|py38h04c4985_29_cpu|py37hf4db2e0_30_cpu|py37hd846abb_20_cpu|py37haf5072f_29_cpu|py37h86697df_19_cuda|py37h86697df_18_cuda|py37h775c597_17_cpu|py37h62a785a_23_cpu|py37h5dd4991_22_cpu|py37h1234567_9_cuda|py37h1234567_8_cuda|py37h1234567_8_cpu|py37h1234567_7_cuda|py37h1234567_5_cuda|py37h1234567_4_cuda|py37h1234567_4_cpu|py37h1234567_3_cuda|py37h1234567_3_cpu|py37h1234567_16_cuda|py37h1234567_16_cpu|py37h1234567_15_cpu|py37h1234567_14_cuda|py37h1234567_14_cpu|py37h1234567_13_cpu|py37h1234567_12_cuda|py37h1234567_12_cpu|py37h1234567_10_cpu|py37h109284a_24_cpu|py37h0e2f68c_18_cpu|py36hfbb20d9_33_cpu|py36hda00fab_22_cuda|py36hce1f5b8_18_cpu|py36hb97fd34_22_cpu|py36ha815ee4_21_cpu|py36h912e5a5_19_cuda|py36h912e5a5_18_cuda|py36h8ccf16e_21_cuda|py36h6abc688_23_cuda|py36h55eb5be_29_cpu|py36h3cd486a_23_cpu|py36h1234567_9_cuda|py36h1234567_8_cuda|py36h1234567_8_cpu|py36h1234567_7_cuda|py36h1234567_6_cuda|py36h1234567_4_cuda|py36h1234567_3_cuda|py36h1234567_16_cuda|py36h1234567_16_cpu|py36h1234567_15_cuda|py36h1234567_14_cuda|py36h1234567_14_cpu|py36h1234567_13_cuda|py36h1234567_13_cpu|py36h1234567_12_cpu|py36h1234567_10_cuda|py36h094604e_25_cpu|py36h0bfa728_20_cpu|py36h1234567_10_cpu|py36h1234567_11_cpu|py36h1234567_11_cuda|py36h1234567_12_cuda|py36h1234567_15_cpu|py36h1234567_3_cpu|py36h1234567_4_cpu|py36h1234567_5_cpu|py36h1234567_5_cuda|py36h1234567_6_cpu|py36h1234567_7_cpu|py36h1234567_9_cpu|py36h3c3189d_20_cuda|py36h4ee66fd_31_cpu|py36h7a3bd57_27_cpu|py36h81cdfd2_17_cpu|py36h91d51af_30_cpu|py36had4e6b9_24_cpu|py36hc01e668_28_cpu|py36hc9c6d2d_32_cpu|py36hce1f5b8_19_cpu|py36hd581a93_26_cpu|py36hf07132f_17_cuda|py37h0b8081c_27_cpu|py37h0e2f68c_19_cpu|py37h10605ac_28_cpu|py37h1234567_10_cuda|py37h1234567_11_cpu|py37h1234567_11_cuda|py37h1234567_13_cuda|py37h1234567_15_cuda|py37h1234567_5_cpu|py37h1234567_6_cpu|py37h1234567_6_cuda|py37h1234567_7_cpu|py37h1234567_9_cpu|py37h21bd308_31_cpu|py37h28458e4_33_cpu|py37h3f51072_21_cpu|py37h5dbe3fe_32_cpu|py37h5fd136b_23_cuda|py37h6312165_20_cuda|py37h823ed9b_25_cpu|py37hb302e0c_21_cuda|py37hc2ab732_22_cuda|py37hcfc5360_17_cuda|py37hdd46b19_26_cpu|py38h051d7fd_17_cuda|py38h1234567_10_cuda|py38h1234567_11_cpu|py38h1234567_12_cpu|py38h1234567_12_cuda|py38h1234567_13_cpu|py38h1234567_14_cuda|py38h1234567_15_cpu|py38h1234567_15_cuda|py38h1234567_16_cpu|py38h1234567_16_cuda|py38h1234567_3_cpu|py38h1234567_3_cuda|py38h1234567_4_cpu|py38h1234567_4_cuda|py38h1234567_5_cuda|py38h1234567_7_cpu|py38h1234567_7_cuda|py38h1234567_9_cuda|py38h188cb6a_23_cpu|py38h3387e72_20_cpu|py38h5102d05_25_cpu|py38h55dfbe1_26_cpu|py38h5812c63_22_cpu|py38h6ad4ccb_18_cpu|py38h845d173_18_cuda|py38h845d173_19_cuda|py38h8fc6181_20_cuda|py38h99c501a_33_cpu|py38had66edb_17_cpu|py38hb059a76_32_cpu|py38hb886584_30_cpu|py38hcd5a59d_21_cuda|py38hda048c6_28_cpu|py38hdc99aaf_23_cuda|py39h3009012_32_cpu|py39hc046a4d_33_cpu|py36h1234567_2_cpu|py37h1234567_0_cpu|py37h1234567_0_cuda|py37h1234567_1_cpu|py37h1234567_1_cuda|py37h1234567_2_cpu|py37h1234567_2_cuda|py38h1234567_0_cuda|py38h1234567_1_cuda|py38h1234567_2_cuda|py36h001c72f_19_cpu|py36h04d4b93_14_cpu|py36h05ed7cb_28_cuda|py36h1227495_30_cuda|py36h1234567_0_cpu|py36h1234567_1_cpu|py36h1234567_1_cuda|py36h1234567_2_cpu|py36h1234567_2_cuda|py36h1d14725_41_cuda|py36h36bae78_7_cpu|py36h3d3e26e_35_cpu|py36h3ec6ad8_6_cuda|py36h426ebad_13_cpu|py36h480d7aa_43_cuda|py36h546243e_15_cuda|py36h546243e_16_cuda|py36h551af5b_16_cpu|py36h5626b07_22_cpu|py36h68da3bf_27_cpu|py36h6d5ba95_32_cpu|py36h726b92b_41_cpu|py36h726b92b_42_cpu|py36h748683b_27_cuda|py36h7bb9b0f_29_cpu|py36h7ebb470_23_cpu|py36h999649b_28_cpu|py36h9ae0879_38_cpu|py36h9e76246_26_cpu|py36ha982ed5_40_cpu|py36hb86fad0_31_cpu|py36hbc7db3d_3_cuda|py36hcb27a2b_14_cuda|py36hd9a2069_26_cuda|py36hd9ee9cb_11_cpu|py36he4527f5_11_cuda|py36he7e951c_21_cuda|py36he91b6ed_18_cuda|py36he93ae88_38_cuda|py36hea504be_36_cuda|py36hf80f262_12_cuda|py36hffcd038_5_cuda|py37h0a26580_29_cuda|py37h0f12f01_35_cuda|py37h1234567_0_cpu|py37h1234567_0_cuda|py37h1234567_1_cpu|py37h12de995_28_cpu|py37h1686cbf_38_cpu|py37h19d4ab4_10_cuda|py37h20531c0_43_cuda|py37h207491b_8_cpu|py37h3fdca3a_35_cpu|py37h48df2c4_23_cuda|py37h4e673c8_22_cpu|py37h5c10f86_24_cuda|py37h5c10f86_25_cuda|py37h6b943ba_9_cuda|py37h6dd33a6_41_cuda|py37h6f5d04a_5_cpu|py37h880e8b3_12_cpu|py37h880e8b3_13_cpu|py37h8c03bf9_4_cpu|py37h9348117_37_cuda|py37h9631afc_15_cuda|py37h9f96ef5_33_cpu|py37hac2aefd_42_cpu|py37hb133d9b_39_cuda|py37hb4cf8a2_10_cpu|py37hb84ec65_31_cuda|py37hb964363_28_cuda|py37hba06121_14_cuda|py37hba6904a_7_cuda|py37hc02b082_20_cpu|py37hd1d2865_14_cuda|py37hd50fff1_29_cpu|py37hddffdf7_37_cpu|py37he700e90_9_cpu|py37heacbc2c_19_cpu|py37hebc1fde_32_cpu|py37hf00d4d6_5_cuda|py37hf99d332_21_cuda|py37hffab67d_32_cuda|py38h081266a_14_cpu|py38h1234567_0_cpu|py38h1234567_1_cpu|py38h1234567_1_cuda|py38h12e40e4_19_cuda|py38h140c071_35_cpu|py38h14434a2_32_cpu|py38h179f8b4_12_cuda|py38h1ee4e12_33_cuda|py38h282e84f_23_cpu|py38h2934018_29_cuda|py38h2b3ae1c_29_cpu|py38h2dc7577_26_cpu|py38h39ad894_12_cpu|py38h3d0fbbc_27_cuda|py38h3d78dee_21_cuda|py38h41c2bc5_14_cuda|py38h45d1fa8_28_cpu|py38h496fee2_20_cpu|py38h496fee2_21_cpu|py38h4bcc62f_10_cpu|py38h4f5e779_5_cuda|py38h5d4dd6c_35_cuda|py38h5f372ab_38_cpu|py38h6da0e5f_34_cpu|py38h746a4b4_7_cuda|py38h7d5ba57_41_cpu|py38h7d5ba57_42_cpu|py38h9018dff_36_cuda|py38h90a0941_9_cpu|py38h9444e92_15_cuda|py38h9be2b36_11_cpu|py38h9c57b62_32_cuda|py38ha705957_17_cpu|py38haba3bca_26_cuda|py38hbe6e8eb_30_cpu|py38hbfecb28_14_cpu|py38hc8b273f_18_cuda|py38hc93a1fc_9_cuda|py38hcb5322d_14_cuda|py38hd40f68f_16_cpu|py38hd6878d3_36_cpu|py38he746ac6_17_cuda|py38hf0991f3_43_cuda|py38hfdefb37_3_cuda|py38hfdefb37_4_cuda|py38hfe8e106_40_cpu|py39h0420923_35_cuda|py39h0767b33_14_cuda|py39h0be5fdb_14_cpu|py39h0cfd5ab_35_cpu|py39h11a0f40_38_cuda|py39h3158790_32_cuda|py39h3529d8e_19_cpu|py39h3f173ad_37_cpu|py39h411beea_24_cpu|py39h411beea_25_cpu|py39h4365511_30_cuda|py39h43de4be_18_cpu|py39h4400fed_26_cpu|py39h532cce1_20_cuda|py39h6b494cb_22_cpu|py39h7103aab_28_cuda|py39h7ae259f_14_cpu|py39h817929d_36_cpu|py39h91c9982_42_cuda|py39h9ca3d13_24_cuda|py39ha0f7f45_36_cuda|py39ha827d9a_15_cpu|py39hbe0e7d6_17_cpu|py39hbed7f4b_43_cpu|py39hc1c9407_15_cuda|py39hc8d86d0_27_cuda|py39hd27c569_29_cuda|py39hee0d0d0_28_cpu|py39hf601f63_34_cuda|py39hf61a962_32_cpu|py39hf7df7e1_19_cuda|py39hfb946ce_23_cpu|py39hfea9332_26_cuda|py36h05fe23f_12_cuda|py36h05fe23f_13_cuda|py36h05fe23f_14_cuda|py36h0624e40_10_cpu|py36h0c458ad_30_cpu|py36h1566718_2_cuda|py36h15cf9b2_6_cuda|py36h1afed7a_19_cpu|py36h1fef78f_36_cpu|py36h269a6b9_39_cpu|py36h3d3e26e_31_cpu|py36h480d7aa_41_cuda|py36h489f780_37_cuda|py36h54f7792_18_cuda|py36h54f7792_19_cuda|py36h68da3bf_23_cpu|py36h6d5ba95_28_cpu|py36h726b92b_40_cpu|py36h79fd5fa_6_cpu|py36h7a023a4_16_cuda|py36h9454c1d_1_cuda|py36h999649b_24_cpu|py36h9e76246_20_cpu|py36ha1372a6_7_cuda|py36hb5dd165_32_cpu|py36hb73f93d_17_cuda|py36hb86fad0_27_cpu|py36hbde7a26_4_cuda|py36hbe3617a_37_cpu|py36hc2ae6b6_2_cpu|py36hc2ae6b6_3_cpu|py36hc50f28a_38_cuda|py36hc5d550b_4_cpu|py36hd484656_3_cuda|py36hd786058_27_cuda|py36hd9a2069_20_cuda|py36hdab1cb2_3_cuda|py36he7e951c_15_cuda|py36he989ed0_28_cuda|py36hee3a341_1_cpu|py36hf717c8c_33_cuda|py36hf88fb5f_13_cpu|py36hfc0dbc7_9_cuda|py37h0161837_26_cpu|py37h05cdd87_1_cuda|py37h08d73b4_29_cuda|py37h0d899e7_26_cuda|py37h10a6eae_22_cuda|py37h1686cbf_34_cpu|py37h3d702e5_41_cpu|py37h43f4869_30_cuda|py37h4401457_14_cpu|py37h48df2c4_17_cuda|py37h4963108_1_cpu|py37h4e673c8_16_cpu|py37h5c10f86_18_cuda|py37h64112e3_18_cpu|py37h7186843_36_cuda|py37h740bbf8_3_cpu|py37h997b9d8_6_cpu|py37h9f96ef5_29_cpu|py37ha0707f2_10_cuda|py37ha0707f2_11_cuda|py37ha1f3b66_3_cuda|py37ha662590_23_cpu|py37haa0c4b2_4_cuda|py37hac41a7a_13_cuda|py37hb9f603b_3_cuda|py37hb9f603b_5_cuda|py37hc02b082_15_cpu|py37hd3f226e_20_cpu|py37hd3f226e_22_cpu|py37hd595375_11_cpu|py37hdace21e_4_cpu|py37hdd741e3_5_cpu|py37he850b76_34_cuda|py37hf1d9cc8_7_cuda|py37hf1d9cc8_8_cuda|py37hf304829_3_cpu|py37hf681485_35_cpu|py37hf98b315_30_cpu|py37hf99d332_15_cuda|py37hff3ac53_7_cpu|py37hffab67d_28_cuda|py38h071bf48_9_cpu|py38h282e84f_17_cpu|py38h28ceb69_18_cpu|py38h28ceb69_19_cpu|py38h2934018_25_cuda|py38h2b3ae1c_25_cpu|py38h3adaf4d_3_cpu|py38h3d78dee_15_cuda|py38h451c9c3_2_cpu|py38h451c9c3_3_cpu|py38h45d1fa8_24_cpu|py38h4710c81_41_cpu|py38h496fee2_15_cpu|py38h5af673a_4_cpu|py38h5ee1e5f_9_cuda|py38h6686b30_37_cpu|py38h7d5ba57_40_cpu|py38h8e6f228_35_cpu|py38h9018dff_32_cuda|py38h91dcb4e_3_cpu|py38h9c57b62_28_cuda|py38ha12db41_33_cpu|py38ha9d6ab6_6_cpu|py38haba3bca_20_cuda|py38hacd7b01_1_cuda|py38hb659564_12_cpu|py38hb659564_14_cpu|py38hb823b37_40_cuda|py38hb955225_18_cuda|py38hb955225_19_cuda|py38hcc56f6c_30_cuda|py38hd6878d3_32_cpu|py38hdcf1ecb_37_cuda|py38hdd734cb_35_cuda|py38he871440_36_cpu|py38head770f_5_cuda|py38hef3fe07_8_cpu|py38hff289e5_12_cuda|py38hff289e5_13_cuda|py38hff289e5_14_cuda|py39h0420923_31_cuda|py39h0767b33_0_cuda|py39h0be5fdb_0_cpu|py39h1f446b9_7_cuda|py39h308db01_12_cuda|py39h308db01_13_cuda|py39h308db01_14_cuda|py39h33dc4db_27_cuda|py39h383f4a7_9_cpu|py39h3e27f4d_4_cpu|py39h3e27f4d_5_cpu|py39h3f8e037_29_cuda|py39h411beea_18_cpu|py39h411beea_19_cpu|py39h502f1dc_36_cpu|py39h6398409_4_cuda|py39h6b494cb_16_cpu|py39h7103aab_24_cuda|py39h8a6a538_29_cpu|py39h8d7e04b_1_cpu|py39h91c9982_40_cuda|py39h94dd8ad_17_cuda|py39h96e570c_39_cpu|py39h9f551a0_10_cuda|py39ha4d06b9_9_cuda|py39had59869_30_cpu|py39hbed7f4b_41_cpu|py39hc01457c_37_cpu|py39hce4a3b7_16_cuda|py39hd27c569_25_cuda|py39hd7c0f73_5_cuda|py39hd948b0e_10_cpu|py39hd948b0e_11_cpu|py39he7f47b9_3_cuda|py39hebef4ed_38_cuda|py39hedd3f5d_3_cpu|py39hf61a962_28_cpu|py39hf708d6b_34_cpu|py39hfb946ce_17_cpu|py36h0c458ad_9_cpu|py36h1227495_4_cuda|py36h16163aa_19_cpu|py36h1d14725_18_cuda|py36h269a6b9_17_cpu|py36h3d3e26e_10_cpu|py36h480d7aa_19_cuda|py36h488aa40_13_cuda|py36h489f780_15_cuda|py36h573a39d_4_cpu|py36h6d5ba95_7_cpu|py36h726b92b_18_cpu|py36h748683b_1_cuda|py36h7bb9b0f_3_cpu|py36h887e13f_10_cuda|py36hb5dd165_11_cpu|py36hb86fad0_5_cpu|py36hbb8fa93_3_cuda|py36hc2d3564_16_cpu|py36hc50f28a_16_cuda|py36hea504be_11_cuda|py36hf02d6d2_14_cuda|py37h0161837_4_cpu|py37h08d73b4_8_cuda|py37h10a6eae_0_cuda|py37h20531c0_19_cuda|py37h363ccdf_11_cuda|py37h5c6ba33_12_cuda|py37h6a8ff91_17_cpu|py37h8ec0733_15_cuda|py37hb0013f2_14_cpu|py37hb964363_2_cuda|py37hc57592b_1_cuda|py37hd50fff1_3_cpu|py37he4eac6b_11_cpu|py37hebc1fde_6_cpu|py37hf98b315_9_cpu|py37hffab67d_6_cuda|py38h140c071_10_cpu|py38h14434a2_7_cpu|py38h1d7a6cc_17_cpu|py38h3d0fbbc_1_cuda|py38h5e2fc6d_8_cpu|py38h6686b30_15_cpu|py38h739bc47_14_cuda|py38h7d5ba57_18_cpu|py38h8e6f228_13_cpu|py38h9018dff_11_cuda|py38hd6878d3_11_cpu|py38hdd734cb_13_cuda|py38he871440_14_cpu|py38hf0991f3_19_cuda|py39h0420923_10_cuda|py39h0cfd5ab_10_cpu|py39h1f788f4_16_cpu|py39h3158790_6_cuda|py39h33dc4db_5_cuda|py39h3607a36_5_cpu|py39h3f8e037_8_cuda|py39h3fcf7f4_14_cuda|py39h443057c_3_cpu|py39h502f1dc_14_cpu|py39h8a6a538_8_cpu|py39h8ba8b8a_1_cpu|py39ha0f7f45_11_cuda|py39had59869_9_cpu|py39hc01457c_15_cpu|py39hc7392d0_15_cuda|py39hebef4ed_16_cuda|py39hee0d0d0_2_cpu|py39hf61a962_6_cpu|py39hf61a962_7_cpu|py36h0c733d3_3_cpu|py36h488aa40_3_cuda|py36h489f780_5_cuda|py36h78ed856_1_cpu|py36h9ae0879_2_cpu|py36hb5dd165_0_cpu|py36hbe3617a_5_cpu|py36hc50f28a_6_cuda|py36he93ae88_2_cuda|py36hf717c8c_1_cuda|py37h7186843_4_cuda|py37hb133d9b_3_cuda|py37hddffdf7_1_cpu|py37hf681485_3_cpu|py38h0f34dee_6_cuda|py38h5f372ab_2_cpu|py38h6686b30_5_cpu|py38h8e6f228_3_cpu|py38hd6878d3_0_cpu|py38hd83f785_2_cuda|py38he871440_4_cpu|py39h11a0f40_2_cuda|py39h1f788f4_6_cpu|py39h3fcf7f4_4_cuda|py39h502f1dc_4_cpu|py39h817929d_0_cpu|py39hdb51910_1_cuda|py36h269a6b9_1_cpu|py36h480d7aa_4_cuda|py36h726b92b_2_cpu|py36h726b92b_3_cpu|py36hc2d3564_0_cpu|py36hc50f28a_0_cuda|py37h20531c0_4_cuda|py37h580f105_1_cuda|py37hac2aefd_2_cpu|py37hac2aefd_3_cpu|py38h0f34dee_0_cuda|py38h1d7a6cc_1_cpu|py38h5af5422_0_cpu|py38h7d5ba57_3_cpu|py38hcd31099_1_cuda|py39h1f788f4_0_cpu|py39h29ecc89_4_cuda|py39h881cbb8_2_cpu|py39h881cbb8_3_cpu|py39h91c9982_2_cuda|py39h91c9982_3_cuda|py39h96e570c_1_cpu|py39hbed7f4b_4_cpu|py39he22c4ef_1_cuda|*cpu']
+Package pysam conflicts for:
+nanoget[version='>=1.14.0'] -> pysam[version='>0.10.0']
+Package cudatoolkit conflicts for:
+pyarrow -> cudatoolkit[version='>=9.2']
+Package tzdata conflicts for:
+python[version='>=3'] -> tzdata
+Package mkl_random conflicts for:
+numpy -> mkl_random[version='>=1.0.2,<2.0a0|>=1.0.4,<2.0a0|>=1.2.1,<2.0a0']
+Package libdeflate conflicts for:
+pysam[version='>0.10.0.0'] -> libdeflate[version='>=1.0,<1.1.0a0|>=1.3,<1.4.0a0|>=1.5,<1.6.0a0|>=1.6,<1.7.0a0|>=1.7,<1.8.0a0']
+
+
+  File "/usr/local/apps/snakemake/conda/envs/6.0.5/lib/python3.9/site-packages/snakemake/deployment/conda.py", line 387, in create
