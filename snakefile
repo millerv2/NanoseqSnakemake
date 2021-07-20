@@ -1,7 +1,7 @@
 # Short workflow to run fastqc and cutadapt.
 SAMPLES = ["SGNex_A549_directRNA_replicate1_run1","SGNex_A549_directRNA_replicate6_run1"]
 
-#orkflow_base = '/data/millerv2'
+#workflow_base = '/data/millerv2'
 
 rule all:
     input:
@@ -64,6 +64,7 @@ rule nanoplot:
     '''
 
 #note, Nanofilt requires unzipped fq files
+
 rule nanofilt:
     input:
         "/data/millerv2/samples/{sample}.fastq"  
@@ -74,6 +75,7 @@ rule nanofilt:
     shell:'''
     NanoFilt -l 500 --headcrop 10 < {input} > /data/millerv2/trimmed_reads/{sample}.fastq
     '''  
+
 """ rule fastqc_trimmed:
     input:
         "trimmed_reads/{sample}_trimmed.fastq.gz"
