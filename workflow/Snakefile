@@ -1,0 +1,89 @@
+import os
+import sys
+import pandas as pd
+
+include: "rules/common.smk"
+
+#print(config['samples'])
+
+#SAMPLES = ["SGNex_A549_directRNA_replicate1_run1","SGNex_A549_directRNA_replicate6_run1"]
+SAMPLES = list(samples['sample'])
+
+output_dir = config['output_dir']
+
+print(output_dir)
+
+#workflow_base = '/data/millerv2'
+
+rule all:
+    input:
+        expand(os.path.join(output_dir,"fastqc_raw","{sample}_fastqc.html"),sample=SAMPLES),
+        expand(os.path.join(output_dir,"fastqc_raw","{sample}_fastqc.zip"),sample=SAMPLES),
+        expand(os.path.join(output_dir,"trimmed_reads","{sample}_trimmed.fastq"),sample=SAMPLES),
+        os.path.join(output_dir,"Nanoplot","NanoPlot-report.html")
+
+
+rule fastqc_raw:
+    input:
+        os.path.join(output_dir,"samples","{sample}.fastq")
+    envmodules:
+        "fastqc/0.11.9"
+    output:
+        os.path.join(output_dir,"fastqc_raw","{sample}_fastqc.html"),
+        os.path.join(output_dir,"fastqc_raw","{sample}_fastqc.zip")
+    shell:
+        "fastqc -o /data/millerv2/fastqc_raw {input}"
+    
+
+rule nanoplot:
+    input:
+        expand(os.path.join(output_dir,"samples","{sample}.fastq"),sample=SAMPLES)
+    container:
+        "docker://staphb/nanoplot:1.33.0"
+# This container defines the underlying OS for each job when using the workflow
+# with --use-singularity
+    output:
+        os.path.join(output_dir,"Nanoplot","Dynamic_Histogram_Read_length.html"),
+        os.path.join(output_dir,"Nanoplot","Dynamic_Histogram_Read_length.png"),
+        os.path.join(output_dir,"Nanoplot","HistogramReadlength.png"),
+        os.path.join(output_dir,"Nanoplot","LengthvsQualityScatterPlot_dot.png"),
+        os.path.join(output_dir,"Nanoplot","LengthvsQualityScatterPlot_kde.png"),
+        os.path.join(output_dir,"Nanoplot","LogTransformed_HistogramReadlength.png"),
+        os.path.join(output_dir,"Nanoplot","NanoPlot-report.html"),
+        os.path.join(output_dir,"Nanoplot","NanoStats.txt"),
+        os.path.join(output_dir,"Nanoplot","Weighted_HistogramReadlength.png"),
+        os.path.join(output_dir,"Nanoplot","Weighted_LogTransformed_HistogramReadlength.png"),
+        os.path.join(output_dir,"Nanoplot","Yield_By_Length.png")
+    shell:'''
+    NanoPlot -o /data/millerv2/Nanoplot/ --fastq {input} 
+    '''
+
+#note, Nanofilt requires unzipped fq files
+
+rule nanofilt:
+    input:
+        os.path.join(output_dir,"samples","{sample}.fastq") 
+    output:
+        os.path.join(output_dir,"trimmed_reads","{sample}_trimmed.fastq") 
+        #"/data/millerv2/trimmed_reads/{sample}_trimmed.fastq"
+    container:
+        "docker://mcfonsecalab/nanofilt:latest"
+    #params:
+    shell:'''
+    NanoFilt -l 500 --headcrop 10 < {input} > /data/millerv2/trimmed_reads/{wildcards.sample}.fastq
+    '''  
+
+""" rule fastqc_trimmed:
+    input:
+        "trimmed_reads/{sample}_trimmed.fastq.gz"
+    envmodules:
+        "fastqc/0.11.9"
+    output:
+        "fastqc_trimmed/{sample}_trimmed_fastqc.html",
+        "fastqc_trimmed/{sample}_trimmed_fastqc.zip"
+    shell:'''
+    fastqc -o fastqc_trimmed {input}
+    ''' 
+ """
+
+ 
