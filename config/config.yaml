@@ -3,4 +3,5 @@
 # one row per sample. It can be parsed easily via pandas.
 samples: "config/samples.tsv"
 
-output_dir: "/data/millerv2"
+base_dir: "/data/millerv2"
+
