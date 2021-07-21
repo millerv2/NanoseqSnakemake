@@ -18,6 +18,8 @@ rule all:
         expand(os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq"),sample=SAMPLES),
         os.path.join(base_dir,"Nanoplot","NanoPlot-report.html")
 
+
+
 rule fastqc_raw:
     input:
         os.path.join(base_dir,"samples","{sample}.fastq")
@@ -99,4 +101,22 @@ rule nanofilt:
     ''' 
  """
 
- 
+ """ rule minimap_alignment:
+    input:
+        os.path.join(base_dir,"samples","{sample}.fastq")
+        #pathtogenome
+    output:
+        os.path.join(base_dir,"fastqc_raw","{sample}_alignment.sam")
+    params:
+        OUT_DIR = os.path.join(base_dir,"genome_alignments")
+        #genome = config['genome']
+    log:
+        os.path.join(base_dir,"logs","{sample}_minimap.log")
+    message:
+        "Running minimap with {input}"
+    envmodules:
+        "minimap2/2.20"
+    shell:'''
+    minimap2 -a ref.fa {wildcards.sample}.fastq > {params.OUT_DIR}/alignment.sam
+    '''  
+     """
