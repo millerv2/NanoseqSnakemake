@@ -5,3 +5,7 @@ samples: "config/samples.tsv"
 
 base_dir: "/data/millerv2"
 
+headcrop: 10
+
+length: 500
+
