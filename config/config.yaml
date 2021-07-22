@@ -9,3 +9,4 @@ headcrop: 10
 
 length: 500
 
+genome_fasta: "/data/millerv2/genomes/hg38.fa"

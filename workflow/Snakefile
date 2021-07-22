@@ -18,8 +18,8 @@ rule all:
         expand(os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq"),sample=SAMPLES),
         os.path.join(base_dir,"Nanoplot","NanoPlot-report.html"),
         expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.html"),sample=SAMPLES),
-        expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.zip"),sample=SAMPLES)
-
+        expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.zip"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"genome_alignmments","{sample}_alignment.sam"),sample=SAMPLES)
 
 
 rule fastqc_raw:
@@ -106,22 +106,22 @@ rule fastqc_trimmed:
   
 rule minimap_alignment:
     input:
-        os.path.join({params.GEN_DIR},"hg38.fa"))
-        os.path.join(base_dir,"samples","{sample}.fastq")
+        ref = config['genome_fasta'],
+        fastq = os.path.join(base_dir,"samples","{sample}.fastq")
     output:
         os.path.join(base_dir,"genome_alignmments","{sample}_alignment.sam")
-    params:
-        OUT_DIR = os.path.join(base_dir,"genome_alignments")
-        GEN_DIR = os.path.join(base_dir,"genomes")
-        #genome = config['genome']
+    #params:
+    #    OUT_DIR = os.path.join(base_dir,"genome_alignments")
     log:
         os.path.join(base_dir,"logs","{sample}_minimap2.log")
     message:
-        "Running minimap with {input}"
+        "Running minimap with {input} with {threads} threads"
     envmodules:
         "minimap2/2.20"
+    threads:
+        12
     shell:'''
-    minimap2 -ax splice -uf -k14 {input} > {params.OUT_DIR}/{sample}_alignment.sam
+    minimap2 -t {threads} -ax splice -uf -k14 {input.ref} {input.fastq} > {output}
     '''
     
     
