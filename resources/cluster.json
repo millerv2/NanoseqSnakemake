@@ -1,0 +1,33 @@
+{
+	"__default__": {
+		"gres": "lscratch:256",
+		"mem": "12g",
+		"partition": "norm",
+		"threads": "2",
+		"time": "6:00:00",
+        "name"      : "{rule}.{wildcards}",
+        "output"    : "logs/slurm-%j.{rule}.{wildcards}.out",
+        "error"     : "logs/slurm-%j.{rule}.{wildcards}.err"
+	},
+	"minimap_alignment": {
+		"mem": "64g",
+		"threads": "32",
+		"time": "8:00:00"
+	},
+	"nanofilt": {
+		"mem": "120g",
+		"time": "8:00:00"
+	},
+	"fastqc_raw": {
+		"mem": "24g",
+		"time": "8:00:00"
+	},
+	"nanoplot": {
+		"mem": "24g",
+		"time": "8:00:00"
+	},
+	"fastqc_trimmed": {
+		"mem": "24g",
+		"time": "8:00:00"
+	}
+}
