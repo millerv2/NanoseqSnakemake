@@ -44,3 +44,17 @@ rule nanoplot:
     shell:'''
     NanoPlot -o {params.OUT_DIR} --fastq {input} 
     '''
+
+rule fastqc_trimmed:
+    input:
+        os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq")
+    output:
+        os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.html"),
+        os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.zip")
+    envmodules:
+        "fastqc/0.11.9"
+    params:
+        OUT_DIR = os.path.join(base_dir,"fastqc_trimmed")
+    shell:'''
+    fastqc -o {params.OUT_DIR} {input}
+    '''  

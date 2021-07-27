@@ -3,11 +3,13 @@ import sys
 import pandas as pd
 
 include: "rules/common.smk"
-include: "rules/qc.smk"
 
 SAMPLES = list(samples['sample'])
-
 base_dir = config['base_dir']
+
+include: "rules/qc.smk"
+include: "rules/align.smk"
+include: "rules/filter.smk"
 
 #running Snakemake dry run with following command, remove -n to run job:
 #snakemake --cores 1 --use-envmodules -n --use-singularity --singularity-args '-B /data/millerv2'
@@ -72,7 +74,7 @@ rule nanoplot:
 
 #note, Nanofilt requires unzipped fq files
 
-rule nanofilt:
+""" rule nanofilt:
     input:
         os.path.join(base_dir,"samples","{sample}.fastq") 
     output:
@@ -104,8 +106,8 @@ rule fastqc_trimmed:
     shell:'''
     fastqc -o {params.OUT_DIR} {input}
     '''  
-  
-rule minimap_alignment:
+   """
+""" rule minimap_alignment:
     input:
         ref = config['genome_fasta'],
         fastq = os.path.join(base_dir,"samples","{sample}.fastq")
@@ -122,5 +124,5 @@ rule minimap_alignment:
     shell:'''
     minimap2 -t {threads} -ax splice -uf -k14 {input.ref} {input.fastq} > {output}
     '''
-    
+     """
     
