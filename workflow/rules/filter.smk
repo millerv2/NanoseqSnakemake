@@ -1,8 +1,8 @@
 rule nanofilt:
     input:
-        oses.path.join(base_dir,"sample","{sample}.fastq") 
+        os.path.join(base_dir,"samples","{sample}.fastq.gz") 
     output:
-        os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq") 
+        os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq.gz") 
     container:
         "docker://mcfonsecalab/nanofilt:latest"
     params:

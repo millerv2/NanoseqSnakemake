@@ -1,7 +1,7 @@
 rule minimap_alignment:
     input:
         ref = config['genome_fasta'],
-        fastq = os.path.join(base_dir,"samples","{sample}.fastq")
+        fastq = os.path.join(base_dir,"samples","{sample}.fastq.gz")
     output:
         os.path.join(base_dir,"genome_alignmments","{sample}_alignment.sam")
     message:
@@ -11,5 +11,5 @@ rule minimap_alignment:
     threads:
         32
     shell:'''
-    minimap2 -t {threads} -ax splice -uf -k14 {input.ref} {input.fastq} > {output}
+    minimap2 -t {threads} -ax splice -uf -k14 {input.ref} {input.fastq} > {output} 
     '''

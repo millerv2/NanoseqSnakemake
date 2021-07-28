@@ -5,10 +5,12 @@ RUNMODE=$2
 
 PIPELINE_HOME="/data/millerv2/NanoseqSnakemake"
 SNAKEFILE="$PIPELINE_HOME/workflow/Snakefile"
+module load snakemake
 
 if [ "$RUNMODE" == "dryrun" ];then
 	snakemake -n \
 	-s $SNAKEFILE \
+    --configfile $PIPELINE_HOME/config/config.yaml \
 	--directory $WORKDIR \
 	--printshellcmds \
 	--cluster-config $PIPELINE_HOME/resources/cluster.json \
@@ -45,7 +47,7 @@ elif [ "$RUNMODE" == "cluster" ];then
 	--keep-going \
 	--stats "${WORKDIR}/snakemake.stats" \
 	2>&1 | tee "${WORKDIR}/snakemake.log"
-	EOF
+EOF
 
 	sbatch submit.sh
 fi

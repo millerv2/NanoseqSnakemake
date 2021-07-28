@@ -1,6 +1,6 @@
 rule fastqc_raw:
     input:
-        os.path.join(base_dir,"samples","{sample}.fastq")
+        os.path.join(base_dir,"samples","{sample}.fastq.gz")
     output:
         os.path.join(base_dir,"fastqc_raw","{sample}_fastqc.html"),
         os.path.join(base_dir,"fastqc_raw","{sample}_fastqc.zip")
@@ -18,7 +18,7 @@ rule fastqc_raw:
 
 rule nanoplot:
     input:
-        expand(os.path.join(base_dir,"samples","{sample}.fastq"),sample=SAMPLES)
+        expand(os.path.join(base_dir,"samples","{sample}.fastq.gz"),sample=SAMPLES)
     container:
         "docker://staphb/nanoplot:1.33.0"
 # This container defines the underlying OS for each job when using the workflow
@@ -47,7 +47,7 @@ rule nanoplot:
 
 rule fastqc_trimmed:
     input:
-        os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq")
+        os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq.gz")
     output:
         os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.html"),
         os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.zip")
