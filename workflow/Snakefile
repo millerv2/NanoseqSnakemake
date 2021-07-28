@@ -12,7 +12,11 @@ include: "rules/align.smk"
 include: "rules/filter.smk"
 
 #running Snakemake dry run with following command, remove -n to run job:
+#to submit job:
+# run the run.sh script using ./run.sh /data/millerv2
+# $1 is first argument given when submitting job, ie, the /data/millerv2 directory
 #snakemake --cores 1 --use-envmodules -n --use-singularity --singularity-args '-B /data/millerv2'
+
 
 rule all:
     input:
@@ -24,5 +28,5 @@ rule all:
         expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.zip"),sample=SAMPLES),
         expand(os.path.join(base_dir,"genome_alignmments","{sample}_alignment.sam"),sample=SAMPLES)
 
-        
+
 

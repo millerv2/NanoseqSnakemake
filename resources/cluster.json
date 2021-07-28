@@ -1,6 +1,6 @@
 {
 	"__default__": {
-		"gres": "lscratch:256",
+		"gres": "lscratch:64",
 		"mem": "12g",
 		"partition": "norm",
 		"threads": "2",

@@ -1,4 +1,7 @@
 #!/bin/bash
+WORKDIR=$1
+RUNMODE=$2
+if [ ! -d $WORKDIR ]; then mkdir -p $WORKDIR;fi
 cat << EOF > submit.sh 
 #!/bin/bash
 #SBATCH --cpus-per-task=4 
@@ -10,9 +13,9 @@ cat << EOF > submit.sh
 module load snakemake
 module load singularity
 snakemake \
---directory "$1" \
+--directory $WORKDIR \
 --use-singularity \
---singularity-args "'-B $1'" \
+--singularity-args "'-B $WORKDIR'" \
 --use-envmodules \
 --printshellcmds \
 --latency-wait 120 \
@@ -21,8 +24,8 @@ snakemake \
 -j 500 \
 --rerun-incomplete \
 --keep-going \
---stats "${1}/snakemake.stats" \
-2>&1 | tee "${1}/snakemake.log"
+--stats "${WORKDIR}/snakemake.stats" \
+2>&1 | tee "${WORKDIR}/snakemake.log"
 EOF
 
 sbatch submit.sh
