@@ -8,6 +8,10 @@ __pycache__/
 *.sif
 *.simg
 
+#ignore slurm output and error files
+slurm*.out
+slurm*.err
+
 # C extensions
 *.so
 

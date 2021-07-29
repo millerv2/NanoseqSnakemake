@@ -5,9 +5,7 @@
 		"partition": "norm",
 		"threads": "2",
 		"time": "6:00:00",
-        "name"      : "{rule}.{wildcards}",
-        "output"    : "logs/slurm-%j.{rule}.{wildcards}.out",
-        "error"     : "logs/slurm-%j.{rule}.{wildcards}.err"
+        "name": "{rule}.{wildcards}"   
 	},
 	"minimap_alignment": {
 		"mem": "64g",

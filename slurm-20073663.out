@@ -1,8 +1,0 @@
-[-] Unloading snakemake  6.5.3 
-[+] Loading snakemake  6.5.3 
-[-] Unloading singularity  3.8.0  on cn0936 
-[+] Loading singularity  3.8.0  on cn0936 
-FileNotFoundError in line 6 of /gpfs/gsfs10/users/millerv2/NanoseqSnakemake/workflow/rules/common.smk:
-[Errno 2] No such file or directory: 'config/config.yaml'
-  File "/gpfs/gsfs10/users/millerv2/NanoseqSnakemake/workflow/Snakefile", line 5, in <module>
-  File "/gpfs/gsfs10/users/millerv2/NanoseqSnakemake/workflow/rules/common.smk", line 6, in <module>

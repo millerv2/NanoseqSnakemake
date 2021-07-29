@@ -3,9 +3,10 @@ import pandas as pd
 
 ##### load config and sample sheets #####
 
-#configfile: "config/config.yaml"
+#configfile: "/data/millerv2/NanoseqSnakemake/config/config.yaml"
 #validate(config, schema="../schemas/config.schema.yaml")
-CONFIGFILE = str(workflow.overwrite_configfiles[0])
+#print(workflow.overwrite_configfiles)
+#CONFIGFILE = str(workflow.overwrite_configfiles[0])
 
 samples = pd.read_csv(config["samples"], sep="\t").set_index("sample", drop=False)
 samples.index.names = ["sample_id"]
