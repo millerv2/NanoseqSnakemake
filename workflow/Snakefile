@@ -30,7 +30,8 @@ rule all:
         os.path.join(base_dir,"Nanoplot","NanoPlot-report.html"),
         expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.html"),sample=SAMPLES),
         expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.zip"),sample=SAMPLES),
-        expand(os.path.join(base_dir,"genome_alignmments","{sample}_alignment.sam"),sample=SAMPLES)
+        expand(os.path.join(base_dir,"genome_alignments","{sample}_alignment.sam"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam"),sample=SAMPLES)
 
 
 
