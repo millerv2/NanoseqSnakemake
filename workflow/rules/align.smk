@@ -27,5 +27,19 @@ rule sam_to_sorted_bam:
     samtools sort {input} -o {output}
     '''
     
+rule samtools_metrics:
+    input:
+        os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam")
+    output:
+        flagstat = os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.flagstat"),
+        stats = os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.stats")
+    message:
+        "Running Samtools with {input}"
+    envmodules:
+        "samtools/1.13"
+    shell:'''
+    samtools flagstat {input} > {output.flagstat}
+    samtools stats {input} > {output.stats}
+    '''
 
 
