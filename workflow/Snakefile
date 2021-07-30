@@ -3,7 +3,7 @@ import sys
 import pandas as pd
 
 include: "rules/common.smk"
-
+sample_dir=config['sample_dir']
 SAMPLES = list(samples['sample'])
 base_dir = config['base_dir']
 
@@ -12,10 +12,13 @@ include: "rules/align.smk"
 include: "rules/filter.smk"
 
 #running Snakemake dry run with following command, remove -n to run job:
-#to submit job:
-# /run.sh /data/millerv2 dryrun for dry run
+#to submit job
+# ./run.sh dryrun /data/millerv2 /data/millerv2/NanoseqSnakemake/.tests for dryrun
+
 # run the run.sh script using ./run.sh /data/millerv2 
-# $1 is first argument given when submitting job, ie, the /data/millerv2 directory
+# $1 is first argument given when submitting job, ie, the runmode, second argument is output dir, third is input file directory
+
+
 #snakemake --cores 1 --use-envmodules -n --use-singularity --singularity-args '-B /data/millerv2'
 
 

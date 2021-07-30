@@ -1,6 +1,7 @@
 #!/bin/bash
 RUNMODE=$1
 WORKDIR=$2
+INPUTDIR=$3
 # runmode = cluster or dryrun or unlock
 
 
@@ -31,13 +32,14 @@ elif [ "$RUNMODE" == "cluster" ];then
 #SBATCH --parsable 
 #SBATCH -J "Nanoseq" 
 #SBATCH --mail-type=BEGIN,END,FAIL
+set -euo pipefail
 module load snakemake
 module load singularity
 snakemake \
 -s $SNAKEFILE \
 --directory $WORKDIR \
 --use-singularity \
---singularity-args "'-B $WORKDIR'" \
+--singularity-args "'-B $WORKDIR,$INPUTDIR'" \
 --configfile $PIPELINE_HOME/config/config.yaml \
 --use-envmodules \
 --printshellcmds \

@@ -5,6 +5,8 @@ samples: "/data/millerv2/NanoseqSnakemake/config/samples.tsv"
 
 base_dir: "/data/millerv2"
 
+sample_dir: "/data/millerv2/NanoseqSnakemake/.tests"
+
 headcrop: 10
 
 length: 500

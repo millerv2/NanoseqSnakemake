@@ -14,5 +14,5 @@ rule nanofilt:
     message:
         "Running Nanofilt with {input}"
     shell:'''
-    NanoFilt -l {params.length} --headcrop {params.headcrop} < {input} > {output}
+    gunzip -c {input} | NanoFilt -l {params.length} --headcrop {params.headcrop} | gzip > {output}
     '''  

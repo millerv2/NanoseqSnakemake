@@ -1,7 +1,7 @@
 rule minimap_alignment:
     input:
         ref = config['genome_fasta'],
-        fastq = os.path.join(base_dir,"samples","{sample}.fastq.gz")
+        fastq = os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq.gz")
     output:
         os.path.join(base_dir,"genome_alignmments","{sample}_alignment.sam")
     message:
