@@ -10,6 +10,7 @@ base_dir = config['base_dir']
 include: "rules/qc.smk"
 include: "rules/align.smk"
 include: "rules/filter.smk"
+include: "rules/bedtools.smk"
 
 #running Snakemake dry run with following command, remove -n to run job:
 #to submit job
@@ -33,7 +34,10 @@ rule all:
         expand(os.path.join(base_dir,"genome_alignments","{sample}_alignment.sam"),sample=SAMPLES),
         expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam"),sample=SAMPLES),
         expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.flagstat"),sample=SAMPLES),
-        expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.stats"),sample=SAMPLES)
+        expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.stats"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"bedtools","bed_files","{sample}.bed"),sample=SAMPLES),
+        os.path.join(base_dir,"genomes","chrom.sizes"),
+        expand(os.path.join(base_dir,"bedtools","bed_files","{sample}.bigBed"),sample=SAMPLES)
 
 
 

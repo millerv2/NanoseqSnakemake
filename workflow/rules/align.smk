@@ -42,4 +42,19 @@ rule samtools_metrics:
     samtools stats {input} > {output.stats}
     '''
 
+#get chromosome sizes in preparation for bedtools data tracks
+rule samtools_get_chrom_sizes:
+    input:
+        ref = config['genome_fasta']
+    output:
+        os.path.join(base_dir,"genomes","chrom.sizes")
+    message:
+        "Running Samtools_get_chrom_sizes with {input}"
+    envmodules:
+        "samtools/1.13"
+    shell:'''
+    samtools faidx {input.ref} | cut -f1,2 > chrom.sizes
+    '''
+
+
 
