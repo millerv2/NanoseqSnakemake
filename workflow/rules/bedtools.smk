@@ -18,11 +18,13 @@ rule bed_to_bigbed:
         bed = os.path.join(base_dir,"bedtools","bed_files","{sample}.bed"),
         chrom_sizes = os.path.join(base_dir,"genomes","chrom.sizes")
     output:
-        os.path.join(base_dir,"bedtools","bed_files","{sample}.bigBed")
+        sorted_bed = os.path.join(base_dir,"bedtools","bed_files","{sample}.sorted.bed"),
+        big_bed = os.path.join(base_dir,"bedtools","big_bed_files","{sample}.bigBed")
     message:
         "Running bedtools with {input}"
-    container:
-        "docker://zavolab/bedtobigbed:2.7"
+    envmodules:
+        "ucsc/416"
     shell:'''
-    bedtoBigBed {input.bed} {input.chrom_sizes} > {output}
+    sort -k1,1 -k2,2n {input.bed} > {output.sorted_bed}
+    bedToBigBed {output.sorted_bed} {input.chrom_sizes} {output.big_bed}
     '''

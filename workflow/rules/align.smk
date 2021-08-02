@@ -53,7 +53,8 @@ rule samtools_get_chrom_sizes:
     envmodules:
         "samtools/1.13"
     shell:'''
-    samtools faidx {input.ref} | cut -f1,2 > chrom.sizes
+    samtools faidx {input.ref}
+    cut -f1,2 {input.ref}.fai > {output}
     '''
 
 
