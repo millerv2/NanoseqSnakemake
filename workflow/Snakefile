@@ -11,6 +11,7 @@ include: "rules/qc.smk"
 include: "rules/align.smk"
 include: "rules/filter.smk"
 include: "rules/bedtools.smk"
+include: "rules/trans_assembly_and_quant.smk"
 
 #running Snakemake dry run with following command, remove -n to run job:
 #to submit job
@@ -37,7 +38,12 @@ rule all:
         expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.stats"),sample=SAMPLES),
         expand(os.path.join(base_dir,"bedtools","bed_files","{sample}.bed"),sample=SAMPLES),
         os.path.join(base_dir,"genomes","chrom.sizes"),
-        expand(os.path.join(base_dir,"bedtools","big_bed_files","{sample}.bigBed"),sample=SAMPLES)
+        expand(os.path.join(base_dir,"bedtools","big_bed_files","{sample}.bigBed"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"bedtools","bedgraph_files","{sample}.bedGraph"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"bedtools","bigWig_tracks","{sample}.bigWig"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"stringtie","{sample}","{sample}.stringtie.gtf"),sample=SAMPLES),
+        os.path.join(base_dir,"stringtie","mergelist","mergelist.txt"),
+        os.path.join(base_dir,"stringtie","merged","stringtie.merged.gtf")
 
 
 
