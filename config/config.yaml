@@ -11,6 +11,6 @@ headcrop: 10
 
 length: 500
 
-genome_fasta: "/data/millerv2/genomes/hg38.fa"
+genome_fasta: "/data/millerv2/genomes/genome.fa"
 
-genome_gtf: "/data/millerv2/genomes/hg38_annot.gtf"
+genome_gtf: "/data/millerv2/genomes/genes.gtf"
