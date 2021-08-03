@@ -3,7 +3,7 @@ rule stringtie_assembly:
         bam = os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam"),
         ref_annot = config['genome_gtf']
     output:
-        os.path.join(base_dir,"stringtie","{sample}","{sample}.stringtie.gtf")
+        os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie.gtf")
     message:
         "Running stringtie with {input}"
     envmodules:
@@ -14,13 +14,14 @@ rule stringtie_assembly:
 
 rule get_merge_list:
     input:
-        expand(os.path.join(base_dir,"stringtie","{sample}","{sample}.stringtie.gtf"),sample=SAMPLES)
+        os.path.join(base_dir,"stringtie","assemblies")
     output:
         os.path.join(base_dir,"stringtie","mergelist","mergelist.txt")
     message: 
-        "creating list of paths to all individual assembly files (.gtf)"
+        "putting list of paths to all individual assembly files (.gtf) into a text file"
     shell:'''
-    echo {input} > {output}
+    cd {input}
+    find "$(pwd)" -type f > {output}
     '''
 
 rule stringtie_merge:
