@@ -45,7 +45,8 @@ rule all:
         expand(os.path.join(base_dir,"bedtools","bigWig_tracks","{sample}.bigWig"),sample=SAMPLES),
         expand(os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie.gtf"),sample=SAMPLES),
         os.path.join(base_dir,"stringtie","mergelist","mergelist.txt"),
-        os.path.join(base_dir,"stringtie","merged","stringtie.merged.gtf")
+        os.path.join(base_dir,"stringtie","merged","stringtie.merged.gtf"),
+        expand(os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie_final.gtf"),sample=SAMPLES)
 
 
 
