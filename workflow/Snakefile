@@ -11,7 +11,8 @@ include: "rules/qc.smk"
 include: "rules/align.smk"
 include: "rules/filter.smk"
 include: "rules/bedtools.smk"
-include: "rules/trans_assembly_and_quant.smk"
+include: "rules/transcript_assembly.smk"
+include: "rules/transcript_quant.smk"
 
 #print(expand(os.path.join(base_dir,"stringtie","{sample}","{sample}.stringtie.gtf"),sample=SAMPLES))
 
@@ -46,7 +47,8 @@ rule all:
         expand(os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie.gtf"),sample=SAMPLES),
         os.path.join(base_dir,"stringtie","mergelist","mergelist.txt"),
         os.path.join(base_dir,"stringtie","merged","stringtie.merged.gtf"),
-        expand(os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie_final.gtf"),sample=SAMPLES)
+        expand(os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie_final.gtf"),sample=SAMPLES),
+        os.path.join(base_dir,"featureCounts","counts_gene.txt")
 
 
 
