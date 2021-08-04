@@ -38,3 +38,16 @@ rule stringtie_merge:
     stringtie --merge {input.gtfs} -G {input.ref_annot} -o {output}
     '''
 
+rule stringtie_assembly_final:
+    input:
+        bam = os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam"),
+        merged_gtf = os.path.join(base_dir,"stringtie","merged","stringtie.merged.gtf")
+    output:
+        os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie_final.gtf")
+    message:
+        "Running stringtie_final with {input}"
+    envmodules:
+        "stringtie/2.1.5"
+    shell:'''
+    stringtie -L -G {input.merged_gtf} -o {output} {input.bam}
+    '''
