@@ -7,7 +7,7 @@ rule featureCounts:
     output:
         os.path.join(base_dir,"featureCounts","counts_gene.txt")
     message:
-        "Running stringtie_final with {input}"
+        "Running featurecounts with {input}"
     envmodules:
         "subread/2.0.2"
     shell:'''
