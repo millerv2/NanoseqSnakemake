@@ -48,7 +48,8 @@ rule all:
         os.path.join(base_dir,"stringtie","mergelist","mergelist.txt"),
         os.path.join(base_dir,"stringtie","merged","stringtie.merged.gtf"),
         expand(os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie_final.gtf"),sample=SAMPLES),
-        os.path.join(base_dir,"featureCounts","counts_gene.txt")
+        os.path.join(base_dir,"featureCounts","counts_gene.txt"),
+        os.path.join(base_dir,"featureCounts","counts_transcript.txt")
 
 
 
