@@ -3,15 +3,17 @@ rule minimap_alignment:
         ref = config['genome_fasta'],
         fastq = os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq.gz")
     output:
-        os.path.join(base_dir,"genome_alignmments","{sample}_alignment.sam")
+        os.path.join(base_dir,"genome_alignments","{sample}_alignment.sam")
     message:
         "Running minimap with {input} with {threads} threads"
     envmodules:
         "minimap2/2.20"
     threads:
         32
+    params:
+        options = lambda wildcards: config["minimap_options"][sample_to_application[wildcards.sample]]
     shell:'''
-    minimap2 -t {threads} -ax splice -uf -k14 {input.ref} {input.fastq} > {output}
+    minimap2 -t {threads} {params.options} {input.ref} {input.fastq} > {output}
     '''
 
 rule sam_to_sorted_bam:

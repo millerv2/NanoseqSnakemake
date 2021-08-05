@@ -14,3 +14,8 @@ length: 500
 genome_fasta: "/data/millerv2/genomes/genome.fa"
 
 genome_gtf: "/data/millerv2/genomes/genes.gtf"
+
+minimap_options:
+    directRNA: '-ax splice -uf -k14'
+    cDNA: '-ax splice'
+    

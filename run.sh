@@ -21,6 +21,7 @@ if [ "$RUNMODE" == "dryrun" ];then
 elif [ "$RUNMODE" == "unlock" ];then
 	snakemake --unlock \
 	-s $SNAKEFILE \
+	--configfile $PIPELINE_HOME/config/config.yaml \
 	--directory $WORKDIR
 elif [ "$RUNMODE" == "cluster" ];then
 	if [ ! -d $WORKDIR ]; then mkdir -p $WORKDIR;fi

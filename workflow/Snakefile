@@ -5,6 +5,8 @@ import pandas as pd
 include: "rules/common.smk"
 sample_dir=config['sample_dir']
 SAMPLES = list(samples['sample'])
+application_type = list(samples['application'])
+sample_to_application = { SAMPLES[i] : application_type[i] for i in range(len(SAMPLES))}
 base_dir = config['base_dir']
 
 include: "rules/qc.smk"
