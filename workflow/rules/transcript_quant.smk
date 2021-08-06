@@ -11,8 +11,18 @@ rule featureCounts:
         "Running featurecounts with {input}"
     envmodules:
         "subread/2.0.2"
-    shell:'''
-    featureCounts -L -O -f -g gene_id -t exon -a {input.merged_gtf} -o {output.genes} {input.bams}
+    params:
+        clean_path = os.path.join(base_dir,"genome_alignments","sorted_bam","")
+        extension = ".sorted.bam"
+    shell:"""
+    featureCounts -L -O -f -g gene_id -t exon -a {input.merged_gtf} -o {output.genes} {input.bams} 
     featureCounts -L -O -f --primary --fraction -F GTF -g transcript_id -t transcript --extraAttributes gene_id -a {input.merged_gtf} -o {output.transcripts} {input.bams}
-    '''
+    sed -i '2 s@{params.clean_path}@@g' {output.genes} 
+    sed -i '2 s@{params.clean_path}@@g' {output.transcripts} 
+    sed -i '2 s@{params.extension}@@g' {output.genes}
+    sed -i '2 s@{params.extension}@@g' {output.transcripts}
+    """
  
+ #take and define pattern with s (substitute) and @ is delimiter where in between the pattern is nested. g is global replacement
+ #2 is only second line of file, below header line
+ #-i is edit file
