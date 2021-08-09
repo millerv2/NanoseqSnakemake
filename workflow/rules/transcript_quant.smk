@@ -12,10 +12,10 @@ rule featureCounts:
     envmodules:
         "subread/2.0.2"
     params:
-        clean_path = os.path.join(base_dir,"genome_alignments","sorted_bam","")
+        clean_path = os.path.join(base_dir,"genome_alignments","sorted_bam",""),
         extension = ".sorted.bam"
     shell:"""
-    featureCounts -L -O -f -g gene_id -t exon -a {input.merged_gtf} -o {output.genes} {input.bams} 
+    featureCounts -L -O -g gene_id -t exon -a {input.merged_gtf} -o {output.genes} {input.bams} 
     featureCounts -L -O -f --primary --fraction -F GTF -g transcript_id -t transcript --extraAttributes gene_id -a {input.merged_gtf} -o {output.transcripts} {input.bams}
     sed -i '2 s@{params.clean_path}@@g' {output.genes} 
     sed -i '2 s@{params.clean_path}@@g' {output.transcripts} 
