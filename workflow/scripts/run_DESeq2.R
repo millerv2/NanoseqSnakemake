@@ -31,7 +31,7 @@ library(DESeq2)
 # default output file
 infile <- "counts_gene.txt"
 sample_sheet <- "samples.tsv"
-#outfile <- args[3]
+outfile <- "deseq2.results.txt"
 
 
 ################################################
@@ -45,7 +45,7 @@ sample_sheet <- "samples.tsv"
 count.matrix <- read.table(infile,sep="\t",header=TRUE, skip = 1,check.names = FALSE)
 count.matrix$Chr   <- count.matrix$Start <- count.matrix$End <- count.matrix$Length <- count.matrix$Strand <- NULL
 colnames(count.matrix) <- gsub("(.sorted){0,1}.bam$","",basename(colnames(count.matrix)))
-count.matrix       <- aggregate(count.matrix[,-1],count.matrix["Geneid"],sum)
+count.matrix <- aggregate(count.matrix[,-1],count.matrix["Geneid"],sum)
 countTab           <- count.matrix[,-1]
 rownames(countTab) <-count.matrix[,1]
 
@@ -55,9 +55,10 @@ rownames(countTab) <-count.matrix[,1]
 ## READ IN SAMPLE INFORMATION (CONDITIONS)    ##
 ################################################
 ################################################
-
-sample_sheet <- data.frame(read.table(sample_sheet,sep="\t",header=TRUE))
+sample_sheet <- "samples.tsv"
+sample_sheet <- data.frame(read.table(sample_sheet,sep="",fill=FALSE,header=TRUE))
 sample <- colnames(countTab)
+group <- sample_sheet$group
 sampInfo <- data.frame(group, row.names = sample)
 if (!all(rownames(sampInfo) == colnames(countTab))){
     sampInfo <- sampInfo[match(colnames(countTab), rownames(sampInfo)),]
@@ -69,6 +70,7 @@ if (!all(rownames(sampInfo) == colnames(countTab))){
 ################################################
 ################################################
 
+#make DESeqDataset and write results to file
 dds <- DESeqDataSetFromMatrix(countData = countTab, colData = sampInfo, design = ~ group)
 dds <- DESeq(dds)
 res <- results(dds)
