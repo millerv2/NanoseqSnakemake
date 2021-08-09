@@ -1,3 +1,5 @@
 sample	application	group
 test1	directRNA	lung
-test2	directRNA	lung	
+test2	directRNA	lung
+test3	directRNA	breast
+test4	directRNA	breast
