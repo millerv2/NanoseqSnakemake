@@ -1,6 +1,6 @@
 rule nanofilt:
     input:
-        os.path.join(base_dir,"samples","{sample}.fastq.gz") 
+        os.path.join(sample_dir,"{sample}.fastq.gz") 
     output:
         os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq.gz") 
     container:
