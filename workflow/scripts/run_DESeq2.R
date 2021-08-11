@@ -24,14 +24,18 @@ library(DESeq2)
 ## PARSE COMMAND-LINE PARAMETERS              ##
 ################################################
 ################################################
-#args = commandArgs(trailingOnly=TRUE)
+args = commandArgs(trailingOnly=TRUE)
 #if (length(args) < 3) {
 #    stop("Please featureCounts results, the sample information file, and an output file name", call.=FALSE)
-}
+#}
 # default output file
-infile <- "counts_gene.txt"
-sample_sheet <- "samples.tsv"
-outfile <- "deseq2.results.txt"
+#infile <- "counts_gene.txt"
+pathtocounts <- args[1]
+pathtosamples <- args[2]
+
+#infile <- "counts_gene.txt"
+#sample_sheet <- "samples.tsv"
+outfile <- "/data/millerv2/DESeq2/deseq2.results.txt"
 
 
 ################################################
@@ -42,7 +46,7 @@ outfile <- "deseq2.results.txt"
 
 #create a dataframe for all samples
 
-count.matrix <- read.table(infile,sep="\t",header=TRUE, skip = 1,check.names = FALSE)
+count.matrix <- read.table(pathtocounts,sep="\t",header=TRUE, skip = 1,check.names = FALSE)
 count.matrix$Chr   <- count.matrix$Start <- count.matrix$End <- count.matrix$Length <- count.matrix$Strand <- NULL
 colnames(count.matrix) <- gsub("(.sorted){0,1}.bam$","",basename(colnames(count.matrix)))
 count.matrix <- aggregate(count.matrix[,-1],count.matrix["Geneid"],sum)
@@ -55,7 +59,7 @@ rownames(countTab) <-count.matrix[,1]
 ## READ IN SAMPLE INFORMATION (CONDITIONS)    ##
 ################################################
 ################################################
-sample_sheet <- "samples.tsv"
+sample_sheet <- pathtosamples
 sample_sheet <- data.frame(read.table(sample_sheet,sep="",fill=FALSE,header=TRUE))
 sample <- colnames(countTab)
 group <- sample_sheet$group
