@@ -15,7 +15,8 @@ include: "rules/filter.smk"
 include: "rules/bedtools.smk"
 include: "rules/transcript_assembly.smk"
 include: "rules/transcript_quant.smk"
-include: "rules/multiQC.smk"
+#include: "rules/multiQC.smk"
+include: "rules/DESeq.smk"
 
 #print(expand(os.path.join(base_dir,"stringtie","{sample}","{sample}.stringtie.gtf"),sample=SAMPLES))
 
@@ -53,7 +54,8 @@ rule all:
         expand(os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie_final.gtf"),sample=SAMPLES),
         os.path.join(base_dir,"featureCounts","counts_gene.txt"),
         os.path.join(base_dir,"featureCounts","counts_transcript.txt"),
-        os.path.join(base_dir,"multiqc","multiqc_report.html")
+        os.path.join(base_dir,"DESeq2","deseq2.results.txt")
+        #os.path.join(base_dir,"multiqc","multiqc_report.html")
 
 
 
