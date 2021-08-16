@@ -18,5 +18,5 @@ The pipeline is written using Snakemake, a Python-baased workflow tool that allo
   - Principal component analysis of samples and heatmap generation (pheatmap)
 7. Present QC for raw read and alignment results (MultiQC)
 
-This workflow is based on and attempts to improve upon the Nextflow-based Nanoseq Bioinformatics pipeline described here (https://github.com/nf-core/nanoseq/blob/master/README.md) u
+This workflow is based on and attempts to improve upon the Nextflow-based Nanoseq Bioinformatics pipeline described here (https://github.com/nf-core/nanoseq/blob/master/README.md) 
 
