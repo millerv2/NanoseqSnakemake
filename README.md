@@ -4,7 +4,7 @@
 The pipeline is written using Snakemake, a Python-baased workflow tool that allows tasks to be run across multiple compute infrastructures in a very portable manner.
 
 # Pipeline Overview
-1. Sequencing QC (pycoQC, NanoPlot)
+1. Sequencing QC ([`NanoPlot`](https://github.com/wdecoster/NanoPlot))
 2. Raw read QC (NanoPlot, FastQC)
 3. Read Filtering (Nanofilt)
 4. Alignment (minimap2)
