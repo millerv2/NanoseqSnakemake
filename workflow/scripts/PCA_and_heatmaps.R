@@ -62,7 +62,7 @@ dev.off()
 
 #make a PCA plot of the samples
 png(pcaplot)
-plotPCA(rld, intgroup = c("application", "group"))
+plotPCA(rld, intgroup = c("application", "group","replicate"))
 dev.off()
 
 #heatmap of 50 most variable genes
@@ -73,7 +73,7 @@ mat <- assay(rld)[ topVarGenes, ]
 mat <- assay(rld)[ topVarGenes, ]
 mat <- mat - rowMeans(mat)
 df <- as.data.frame(colData(rld)[,c("application","group")])
-clear_col_names <- paste( rld$group, rld$application,sep=".")
+clear_col_names <- paste( rld$group, rld$application, sep=".")
 png(top50heatmap,width=750,height=700,units="px")
 topGenesHeatmap <- pheatmap(mat, annotation_col=df, labels_col = clear_col_names)
 dev.off()
