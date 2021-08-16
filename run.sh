@@ -5,7 +5,8 @@ INPUTDIR=$3
 # runmode = cluster or dryrun or unlock
 
 
-PIPELINE_HOME="/data/millerv2/NanoseqSnakemake"
+#PIPELINE_HOME="/data/millerv2/NanoseqSnakemake"
+PIPELINE_HOME="$(dirname "${BASH_SOURCE[0]}")"
 SNAKEFILE="$PIPELINE_HOME/workflow/Snakefile"
 module load snakemake
 
