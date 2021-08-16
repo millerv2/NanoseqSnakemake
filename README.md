@@ -16,7 +16,7 @@ The pipeline is written using Snakemake, a Python-baased workflow tool that allo
     * Each sample can be processed individually and combined using Stringtie Merge. After which, featureCounts will be used for both gene and transcript      quantification.
     * Differential expression analysis ([`DESeq2`](https://bioconductor.org/packages/release/bioc/html/DESeq2.html))
     * Principal component analysis of samples and heatmap generation ([`pheatmap`](https://www.rdocumentation.org/packages/pheatmap/versions/1.0.12/topics/pheatmap/))
-7. Present QC for raw read and alignment results (([`MultiQC`](https://multiqc.info/docs/))
+7. Present QC for raw read and alignment results ([`MultiQC`](https://multiqc.info/docs/))
 
 This workflow is based on and attempts to improve upon the Nextflow-based Nanoseq Bioinformatics pipeline described here (https://github.com/nf-core/nanoseq/blob/master/README.md) 
 
