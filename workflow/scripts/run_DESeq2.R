@@ -32,6 +32,7 @@ args = commandArgs(trailingOnly=TRUE)
 #infile <- "counts_gene.txt"
 pathtocounts <- args[1]
 pathtosamples <- args[2]
+#featuretype <- args[3]
 
 #infile <- "counts_gene.txt"
 #sample_sheet <- "samples.tsv"
