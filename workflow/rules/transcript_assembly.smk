@@ -14,14 +14,15 @@ rule stringtie_assembly:
 
 rule get_merge_list:
     input:
-        os.path.join(base_dir,"stringtie","assemblies")
+        expand(os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie.gtf"),sample=SAMPLES)
     output:
         os.path.join(base_dir,"stringtie","mergelist","mergelist.txt")
     message: 
         "putting list of paths to all individual assembly files (.gtf) into a text file"
     shell:'''
-    cd {input}
-    find "$(pwd)" -type f > {output}
+    for i in {input};do
+        find $(dirname $i) -type f -name "*.stringtie.gtf"
+    done | sort | uniq > {output}
     '''
 
 rule stringtie_merge:
