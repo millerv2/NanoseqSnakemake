@@ -1,5 +1,5 @@
 # Introduction
-**millerv2/NanoseqSnakemake** is a bioinformatics analysis pipeline that can be used to perform basecalling, demultiplexing, QC, mapping and downstream analysis of Nanopore long-read RNA sequencing data.
+**millerv2/NanoseqSnakemake** is a bioinformatics analysis pipeline that can be used to perform QC, mapping and downstream analysis of Nanopore long-read RNA sequencing data.
 
 The pipeline is written using Snakemake, a Python-based workflow tool that allows tasks to be run across multiple compute infrastructures in a very portable manner.
 
