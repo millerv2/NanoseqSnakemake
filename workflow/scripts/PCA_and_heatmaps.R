@@ -62,7 +62,7 @@ dev.off()
 
 #make a PCA plot of the samples
 png(pcaplot)
-plotPCA(rld, intgroup = c("application", "group","replicate"))
+plotPCA(rld, intgroup = c("application", "group")
 dev.off()
 
 #heatmap of 50 most variable genes
