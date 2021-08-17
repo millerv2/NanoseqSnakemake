@@ -1,31 +1,66 @@
 #!/bin/bash
+# runmode : dryrun or unlock or cluster or init
 RUNMODE=$1
+# workdir : dir where all the results will go
 WORKDIR=$2
+# inputdir : dir where all the input fastqs are located
 INPUTDIR=$3
-# runmode = cluster or dryrun or unlock
 
-
-#PIPELINE_HOME="/data/millerv2/NanoseqSnakemake"
-PIPELINE_HOME="$(dirname "${BASH_SOURCE[0]}")"
+PIPELINE_HOME="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))"
 SNAKEFILE="$PIPELINE_HOME/workflow/Snakefile"
+CONFIGYAML="$WORKDIR/config.yaml"
+CLUSTERJSON="$WORKDIR/cluster.json"
+
+echo "Pipeline Dir:$PIPELINE_HOME"
+echo "Snakefile:$SNAKEFILE"
+echo "Output Dir:$WORKDIR"
+echo "Config file:$CONFIGYAML"
+echo "Cluster resources file:$CLUSTERJSON"
+
 module load snakemake
+#module load snakemake/6.0.5
+
+function check_workdir_exists() {
+if [ ! -d $WORKDIR ];then
+	echo "Run \"init\" runmode to create $WORKDIR!"
+	exit
+fi
+}
 
 if [ "$RUNMODE" == "dryrun" ];then
+
+	check_workdir_exists 
 	snakemake -n \
 	-s $SNAKEFILE \
-    --configfile $PIPELINE_HOME/config/config.yaml \
+        --configfile $CONFIGYAML \
 	--directory $WORKDIR \
 	--printshellcmds \
-	--cluster-config $PIPELINE_HOME/resources/cluster.json \
+	--cluster-config $CLUSTERJSON \
 	--cluster "sbatch --gres {cluster.gres} --cpus-per-task {cluster.threads} -p {cluster.partition} -t {cluster.time} --mem {cluster.mem} --job-name {cluster.name} --output {cluster.output} --error {cluster.error} " \
 	-j 500
+
+elif [ "$RUNMODE" == "init" ];then
+	
+	if [ -d "$WORKDIR" ];then
+		echo "$WORKDIR already exists! Cannot re-initialize!"
+		exit
+	fi
+	mkdir $WORKDIR
+	sed -e "s/PIPELINE_HOME/${PIPELINE_HOME//\//\\/}/g" -e "s/WORKDIR/${WORKDIR//\//\\/}/g" ${PIPELINE_HOME}/config/config.yaml > $WORKDIR/config.yaml
+	sed -e "s/PIPELINE_HOME/${PIPELINE_HOME//\//\\/}/g" -e "s/WORKDIR/${WORKDIR//\//\\/}/g" ${PIPELINE_HOME}/config/samples.tsv > $WORKDIR/samples.tsv
+	cp $PIPELINE_HOME/resources/cluster.json $WORKDIR/cluster.json
+
 elif [ "$RUNMODE" == "unlock" ];then
+
+	check_workdir_exists
 	snakemake --unlock \
 	-s $SNAKEFILE \
-	--configfile $PIPELINE_HOME/config/config.yaml \
+	--configfile $CONFIGYAML \
 	--directory $WORKDIR
+
 elif [ "$RUNMODE" == "cluster" ];then
-	if [ ! -d $WORKDIR ]; then mkdir -p $WORKDIR;fi
+
+	check_workdir_exists
 	cat << EOF > submit.sh 
 #!/bin/bash
 #SBATCH --cpus-per-task=4 
@@ -42,12 +77,12 @@ snakemake \
 --directory $WORKDIR \
 --use-singularity \
 --singularity-args "'-B $WORKDIR,$INPUTDIR'" \
---configfile $PIPELINE_HOME/config/config.yaml \
+--configfile $CONFIGYAML \
 --use-envmodules \
 --printshellcmds \
 --latency-wait 120 \
---cluster-config $PIPELINE_HOME/resources/cluster.json \
---cluster "sbatch --gres {cluster.gres} --cpus-per-task {cluster.threads} -p {cluster.partition} -t {cluster.time} --mem {cluster.mem} --job-name {cluster.name} " \
+--cluster-config $CLUSTERJSON \
+--cluster "sbatch --gres {cluster.gres} --cpus-per-task {cluster.threads} -p {cluster.partition} -t {cluster.time} --mem {cluster.mem} --job-name {cluster.name} --output {cluster.output} --error {cluster.error} " \
 -j 500 \
 --rerun-incomplete \
 --keep-going \
