@@ -61,6 +61,3 @@ rule all:
         os.path.join(base_dir,"downstream","top50heatmap.png")
         #os.path.join(base_dir,"multiqc","multiqc_report.html")
 
-
-#grep -i 'submit' snakemake.log | awk '{print $NF}' | sed 's-\.$--g' | awk '{print "jobhist", $NF}' | bash | grep -A1 '^Jobid' 
-# to get all child job ids and then assess usage with jobhist job-id
