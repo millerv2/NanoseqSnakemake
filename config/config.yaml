@@ -3,13 +3,13 @@
 # one row per sample. It can be parsed easily via pandas.
 samples: "PIPELINE_HOME/config/samples.tsv"
 
-base_dir: "PIPELINE_HOME"
+base_dir: "WORKDIR"
 
 sample_dir: "PIPELINE_HOME/.tests"
 
-headcrop: 10
-
-length: 500
+nanofilt:
+    headcrop: 10
+    length: 500
 
 genome_fasta: "/data/CCBR_Pipeliner/db/PipeDB/Indices/hg38_basic/hg38.fa"
 
