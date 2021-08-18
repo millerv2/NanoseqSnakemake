@@ -61,6 +61,7 @@ elif [ "$RUNMODE" == "unlock" ];then
 elif [ "$RUNMODE" == "cluster" ];then
 
 	check_workdir_exists
+	cd $WORKDIR
 	cat << EOF > submit.sh 
 #!/bin/bash
 #SBATCH --cpus-per-task=4 
