@@ -5,7 +5,7 @@ rule stringtie_assembly:
     output:
         os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie.gtf")
     message:
-        "Running stringtie with {input}"
+        "Running stringtie_assembly with {input}"
     envmodules:
         "stringtie/2.1.5"
     shell:'''
@@ -32,7 +32,7 @@ rule stringtie_merge:
     output:
         os.path.join(base_dir,"stringtie","merged","stringtie.merged.gtf")
     message:
-        "Running stringtie with {input}"
+        "Running stringtie_merge with {input}"
     envmodules:
         "stringtie/2.1.5"
     shell:'''
