@@ -37,7 +37,7 @@ if [ "$RUNMODE" == "dryrun" ];then
 	--printshellcmds \
 	--cluster-config $CLUSTERJSON \
 	--cluster "sbatch --gres {cluster.gres} --cpus-per-task {cluster.threads} -p {cluster.partition} -t {cluster.time} --mem {cluster.mem} --job-name {cluster.name} --output {cluster.output} --error {cluster.error} " \
-	-j 500
+	-j 500 | tee ${WORKDIR}/dryrun.log
 
 elif [ "$RUNMODE" == "init" ];then
 	
@@ -50,6 +50,7 @@ elif [ "$RUNMODE" == "init" ];then
 	sed -e "s/PIPELINE_HOME/${PIPELINE_HOME//\//\\/}/g" -e "s/WORKDIR/${WORKDIR//\//\\/}/g" ${PIPELINE_HOME}/config/config.yaml > $WORKDIR/config.yaml
 	sed -e "s/PIPELINE_HOME/${PIPELINE_HOME//\//\\/}/g" -e "s/WORKDIR/${WORKDIR//\//\\/}/g" ${PIPELINE_HOME}/config/samples.tsv > $WORKDIR/samples.tsv
 	cp $PIPELINE_HOME/resources/cluster.json $WORKDIR/cluster.json
+	cp -r $PIPELINE_HOME/workflow/scripts $WORKDIR/
 
 elif [ "$RUNMODE" == "unlock" ];then
 
@@ -90,6 +91,16 @@ snakemake \
 --keep-going \
 --stats "${WORKDIR}/snakemake.stats" \
 2>&1 | tee "${WORKDIR}/snakemake.log"
+
+if [ "\$?" -eq "0" ];then
+  snakemake -s $SNAKEFILE \
+  --directory $WORKDIR \
+  --report ${WORKDIR}/runslurm_snakemake_report.html \
+  --configfile ${WORKDIR}/config.yaml 
+fi
+
+bash <(curl https://raw.githubusercontent.com/CCBR/Tools/master/Biowulf/gather_cluster_stats_biowulf.sh 2>/dev/null) ${WORKDIR}/snakemake.log > ${WORKDIR}/snakemake.log.HPC_summary.txt
+
 EOF
 
 	sbatch submit.sh
