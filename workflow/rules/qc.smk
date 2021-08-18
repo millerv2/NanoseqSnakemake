@@ -6,14 +6,13 @@ rule fastqc_raw:
         os.path.join(base_dir,"fastqc_raw","{sample}_fastqc.zip")
     params:
         OUT_DIR = os.path.join(base_dir,"fastqc_raw")
-    log:
-        os.path.join(base_dir,"logs","{sample}_fastqc_raw.log")
     message:
         "Running fastqc_raw with {input}"
     envmodules:
         "fastqc/0.11.9"
-    shell:
-        "fastqc -o {params.OUT_DIR} {input} &> {log} "
+    shell:'''
+fastqc -o {params.OUT_DIR} {input}
+'''
     #test
 
 rule nanoplot:
@@ -37,24 +36,22 @@ rule nanoplot:
         os.path.join(base_dir,"Nanoplot","Yield_By_Length.png")
     params:
         OUT_DIR = os.path.join(base_dir,"Nanoplot")
-    log:
-        os.path.join(base_dir,"logs","Nanoplot.log")
     message:
         "Running Nanoplot with {input}"
     shell:'''
-    NanoPlot -o {params.OUT_DIR} --fastq {input} 
+NanoPlot -o {params.OUT_DIR} --fastq {input} 
     '''
 
-rule fastqc_trimmed:
+rule fastqc_filtered:
     input:
-        os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq.gz")
+        os.path.join(base_dir,"filtered_reads","{sample}_filtered.fastq.gz")
     output:
-        os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.html"),
-        os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.zip")
+        os.path.join(base_dir,"fastqc_filtered","{sample}_filtered_fastqc.html"),
+        os.path.join(base_dir,"fastqc_filtered","{sample}_filtered_fastqc.zip")
     envmodules:
         "fastqc/0.11.9"
     params:
-        OUT_DIR = os.path.join(base_dir,"fastqc_trimmed")
+        OUT_DIR = os.path.join(base_dir,"fastqc_filtered")
     shell:'''
     fastqc -o {params.OUT_DIR} {input}
     '''  
