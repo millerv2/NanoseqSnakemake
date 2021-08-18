@@ -46,6 +46,7 @@ elif [ "$RUNMODE" == "init" ];then
 		exit
 	fi
 	mkdir $WORKDIR
+	mkdir ${WORKDIR}/logs
 	sed -e "s/PIPELINE_HOME/${PIPELINE_HOME//\//\\/}/g" -e "s/WORKDIR/${WORKDIR//\//\\/}/g" ${PIPELINE_HOME}/config/config.yaml > $WORKDIR/config.yaml
 	sed -e "s/PIPELINE_HOME/${PIPELINE_HOME//\//\\/}/g" -e "s/WORKDIR/${WORKDIR//\//\\/}/g" ${PIPELINE_HOME}/config/samples.tsv > $WORKDIR/samples.tsv
 	cp $PIPELINE_HOME/resources/cluster.json $WORKDIR/cluster.json
