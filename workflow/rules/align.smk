@@ -24,8 +24,9 @@ rule sam_to_sorted_bam:
         "Running sam_to_sorted_bam with {input}"
     envmodules:
         "samtools/1.13"
+    threads: getthreads("sam_to_sorted_bam")
     shell:'''
-    samtools sort -bS {input} -o {output}
+    samtools sort -@ {threads} -O bam -o {output} {input}
     '''
     
 rule samtools_metrics:
