@@ -18,4 +18,6 @@ genome_gtf: "/data/CCBR_Pipeliner/db/PipeDB/Indices/hg38_basic/genes.gtf"
 minimap_options:
     directRNA: '-ax splice -uf -k14'
     cDNA: '-ax splice'
+    cDNAStranded: '-ax splice -uf'
+    directcDNA: '-ax splice -uf -k14'
     

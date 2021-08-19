@@ -52,8 +52,8 @@ rule all:
         os.path.join(base_dir,"featureCounts","counts_gene.txt"),
         os.path.join(base_dir,"featureCounts","counts_transcript.txt"),
         # os.path.join(base_dir,"DESeq2","deseq2.results.txt"),
-        # os.path.join(base_dir,"dataviz","sampleheatmap.png"),
-        # os.path.join(base_dir,"dataviz","PCAsamples.png"),
-        # os.path.join(base_dir,"dataviz","top50heatmap.png")
+        os.path.join(base_dir,"dataviz","sampleheatmap.png"),
+        os.path.join(base_dir,"dataviz","PCAsamples.png"),
+        os.path.join(base_dir,"dataviz","top50heatmap.png")
         #os.path.join(base_dir,"multiqc","multiqc_report.html")
 
