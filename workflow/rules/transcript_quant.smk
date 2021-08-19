@@ -26,3 +26,4 @@ rule featureCounts:
  #take and define pattern with s (substitute) and @ is delimiter where in between the pattern is nested. g is global replacement
  #2 is only second line of file, below header line
  #-i is edit file
+
