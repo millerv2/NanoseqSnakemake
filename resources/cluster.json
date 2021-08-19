@@ -21,7 +21,7 @@
 	"fastqc_raw": {
 		"mem": "8g",
 		"time": "8:00:00",
-		"threads": "16"
+		"threads": "32"
 	},
 	"nanoplot": {
 		"mem": "24g",
@@ -30,6 +30,6 @@
 	"fastqc_filtered": {
 		"mem": "8g",
 		"time": "8:00:00",
-		"threads": "16"
+		"threads": "32"
 	}
 }
