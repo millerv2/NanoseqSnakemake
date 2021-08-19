@@ -10,6 +10,7 @@ rule fastqc_raw:
         "Running fastqc_raw with {input}"
     envmodules:
         "fastqc/0.11.9"
+    threads: getthreads("fastqc_raw")
     shell:'''
 fastqc -o {params.OUT_DIR} {input}
 '''
@@ -38,6 +39,7 @@ rule nanoplot:
         OUT_DIR = os.path.join(base_dir,"Nanoplot")
     message:
         "Running Nanoplot with {input}"
+    threads: getthreads("nanoplot")
     shell:'''
 NanoPlot -o {params.OUT_DIR} --fastq {input} 
     '''
@@ -52,6 +54,7 @@ rule fastqc_filtered:
         "fastqc/0.11.9"
     params:
         OUT_DIR = os.path.join(base_dir,"fastqc_filtered")
+    threads: getthreads("fastqc_filtered")
     shell:'''
     fastqc -o {params.OUT_DIR} {input}
     '''  

@@ -8,6 +8,7 @@ rule stringtie_assembly:
         "Running stringtie_assembly with {input}"
     envmodules:
         "stringtie/2.1.5"
+    threads: getthreads("stringtie_assembly")
     shell:'''
     stringtie -L -G {input.ref_annot} -o {output} {input.bam}
     '''
@@ -19,6 +20,7 @@ rule get_merge_list:
         os.path.join(base_dir,"stringtie","mergelist","mergelist.txt")
     message: 
         "putting list of paths to all individual assembly files (.gtf) into a text file"
+    threads: getthreads("get_merge_list")
     shell:'''
     for i in {input};do
         find $(dirname $i) -type f -name "*.stringtie.gtf"
@@ -35,6 +37,7 @@ rule stringtie_merge:
         "Running stringtie_merge with {input}"
     envmodules:
         "stringtie/2.1.5"
+    threads: getthreads("stringtie_merge")
     shell:'''
     stringtie --merge {input.gtfs} -G {input.ref_annot} -o {output}
     '''
@@ -49,6 +52,7 @@ rule stringtie_assembly_final:
         "Running stringtie_final with {input}"
     envmodules:
         "stringtie/2.1.5"
+    threads: getthreads("stringtie_assembly_final")
     shell:'''
     stringtie -L -G {input.merged_gtf} -o {output} {input.bam}
     '''

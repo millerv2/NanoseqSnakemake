@@ -30,6 +30,7 @@ rule multiQC:
     params:
         workdir = base_dir,
         outdir = os.path.join(base_dir,"multiqc")
+    threads: getthreads("multiQC")
     shell:'''
     multiqc --ignore '*/.singularity/*' -f --interactive --outdir {params.outdir} {params.workdir}
     '''

@@ -39,6 +39,7 @@ rule samtools_metrics:
         "Running samtools_metrics with {input}"
     envmodules:
         "samtools/1.13"
+    threads: getthreads("samtools_metrics")
     shell:'''
     samtools flagstat {input} > {output.flagstat}
     samtools stats {input} > {output.stats}
@@ -54,6 +55,7 @@ rule samtools_get_chrom_sizes:
         "Running samtools_get_chrom_sizes with {input}"
     envmodules:
         "samtools/1.13"
+    threads: getthreads("samtools_get_chrom_sizes")
     shell:'''
 cd $(dirname {output})
 ln -s {input.ref} .

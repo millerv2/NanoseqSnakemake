@@ -9,10 +9,9 @@ rule nanofilt:
         OUT_DIR = os.path.join(base_dir,"filtered_reads"),
         headcrop = config['nanofilt']['headcrop'],
         length = config['nanofilt']['length']
-    log:
-        os.path.join(base_dir,"logs","{sample}_Nanofilt.log")
     message:
         "Running Nanofilt with {input}"
+    threads: getthreads("nanofilt")
     shell:'''
     gunzip -c {input} | NanoFilt -l {params.length} --headcrop {params.headcrop} | gzip - > {output}
     '''  

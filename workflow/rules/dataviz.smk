@@ -15,6 +15,7 @@ rule dataviz:
         script_name = "PCA_and_heatmaps.R"
     envmodules:
         "R/4.1.0"
+    threads: getthreads("dataviz")
     shell:"""
     if [ ! -f {params.out_dir} ]; then mkdir -p {params.out_dir};fi
     Rscript {params.script_dir}/{params.script_name} {input.genecounts} {input.samples} {params.out_dir}

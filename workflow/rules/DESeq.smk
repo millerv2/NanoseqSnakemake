@@ -11,6 +11,7 @@ rule DESeq:
         "Running DESeq2 with {input}"
     envmodules:
         "R/4.1.0"
+    threads: getthreads("DESeq")
     shell:"""
     Rscript {params.script_dir}/{params.script_name} {input.genecounts} {input.samples}
     """

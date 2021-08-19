@@ -11,6 +11,7 @@ rule convert_bam:
         "Running bedtools with {input}"
     envmodules:
         "bedtools/2.30.0","ucsc/416"
+    threads: getthreads("convert_bam")
     shell:'''
     bedtools bamtobed -i {input.bam} > {output.bed}
     bedSort {output.bed} {output.bed}
