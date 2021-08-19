@@ -11,7 +11,7 @@ include: "rules/filter.smk"
 include: "rules/bedtools.smk"
 include: "rules/transcript_assembly.smk"
 include: "rules/transcript_quant.smk"
-#include: "rules/multiQC.smk"
+include: "rules/multiQC.smk"
 include: "rules/DESeq.smk"
 include: "rules/dataviz.smk"
 
@@ -54,6 +54,6 @@ rule all:
         # os.path.join(base_dir,"DESeq2","deseq2.results.txt"),
         os.path.join(base_dir,"dataviz","sampleheatmap.png"),
         os.path.join(base_dir,"dataviz","PCAsamples.png"),
-        os.path.join(base_dir,"dataviz","top50heatmap.png")
+        os.path.join(base_dir,"dataviz","top50heatmap.png"),
         os.path.join(base_dir,"multiqc","multiqc_report.html")
 
