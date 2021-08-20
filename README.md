@@ -20,3 +20,6 @@ The pipeline is written using Snakemake, a Python-based workflow tool that allow
 This workflow is based on and attempts to improve upon the Nextflow-based Nanoseq Bioinformatics pipeline described here (https://github.com/nf-core/nanoseq/blob/master/README.md) 
 
 # Running the Workflow
+1. Install [`Snakemake`](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)
+2. Download the pipeline and test it on a small data set with the command:
+
