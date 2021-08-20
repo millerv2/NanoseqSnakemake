@@ -1,6 +1,7 @@
 library(pheatmap)
 library(RColorBrewer)
 library(DESeq2)
+library(ggplot2)
 
 #set path to counts matrix and sample table:
 
@@ -14,9 +15,9 @@ outputdir <- args[3]
 #pathtosamples <- "samples.tsv"
 #setwd("~/Desktop/featureCounts")
 
-sampleheatmap <- paste(outputdir,'sampleheatmap.png',sep="")
-pcaplot <- paste(outputdir,"PCAsamples.png",sep="")
-top50heatmap <- paste(outputdir,"top50heatmap.png",sep="")
+sampleheatmap <- paste(outputdir,'sampleheatmap.png',sep="/")
+pcaplot <- paste(outputdir,"PCAsamples.png",sep="/")
+top50heatmap <- paste(outputdir,"top50heatmap.png",sep="/")
 
 #read in counts matrix and sample data table to make a DESeqDataSet
 count.matrix <- read.table(pathtocounts,sep="\t",header=TRUE, skip = 1,check.names = FALSE)

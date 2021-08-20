@@ -1,15 +1,14 @@
 rule minimap_alignment:
     input:
         ref = config['genome_fasta'],
-        fastq = os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq.gz")
+        fastq = os.path.join(base_dir,"filtered_reads","{sample}_filtered.fastq.gz")
     output:
         os.path.join(base_dir,"genome_alignments","{sample}_alignment.sam")
     message:
-        "Running minimap with {input} with {threads} threads"
+        "Running minimap_alignment with {input} with {threads} threads"
     envmodules:
         "minimap2/2.20"
-    threads:
-        32
+    threads: getthreads("minimap_alignment")
     params:
         options = lambda wildcards: config["minimap_options"][sample_to_application[wildcards.sample]]
     shell:'''
@@ -22,11 +21,12 @@ rule sam_to_sorted_bam:
     output:
         os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam")
     message:
-        "Running Samtools with {input}"
+        "Running sam_to_sorted_bam with {input}"
     envmodules:
         "samtools/1.13"
+    threads: getthreads("sam_to_sorted_bam")
     shell:'''
-    samtools sort {input} -o {output}
+    samtools sort -@ {threads} -O bam -o {output} {input}
     '''
     
 rule samtools_metrics:
@@ -36,9 +36,10 @@ rule samtools_metrics:
         flagstat = os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.flagstat"),
         stats = os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.stats")
     message:
-        "Running Samtools with {input}"
+        "Running samtools_metrics with {input}"
     envmodules:
         "samtools/1.13"
+    threads: getthreads("samtools_metrics")
     shell:'''
     samtools flagstat {input} > {output.flagstat}
     samtools stats {input} > {output.stats}
@@ -51,13 +52,17 @@ rule samtools_get_chrom_sizes:
     output:
         os.path.join(base_dir,"genomes","chrom.sizes")
     message:
-        "Running Samtools_get_chrom_sizes with {input}"
+        "Running samtools_get_chrom_sizes with {input}"
     envmodules:
         "samtools/1.13"
+    threads: getthreads("samtools_get_chrom_sizes")
     shell:'''
-    samtools faidx {input.ref}
-    cut -f1,2 {input.ref}.fai > {output}
-    '''
+cd $(dirname {output})
+ln -s {input.ref} .
+bn=$(basename {input.ref})
+samtools faidx $bn
+cut -f1,2 ${{bn}}.fai > {output}
+'''
 
 
 

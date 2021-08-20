@@ -3,11 +3,7 @@ import sys
 import pandas as pd
 
 include: "rules/common.smk"
-sample_dir=config['sample_dir']
-SAMPLES = list(samples['sample'])
-application_type = list(samples['application'])
-sample_to_application = { SAMPLES[i] : application_type[i] for i in range(len(SAMPLES))}
-base_dir = config['base_dir']
+
 
 include: "rules/qc.smk"
 include: "rules/align.smk"
@@ -15,7 +11,7 @@ include: "rules/filter.smk"
 include: "rules/bedtools.smk"
 include: "rules/transcript_assembly.smk"
 include: "rules/transcript_quant.smk"
-#include: "rules/multiQC.smk"
+include: "rules/multiQC.smk"
 include: "rules/DESeq.smk"
 include: "rules/dataviz.smk"
 
@@ -36,10 +32,10 @@ rule all:
     input:
         expand(os.path.join(base_dir,"fastqc_raw","{sample}_fastqc.html"),sample=SAMPLES),
         expand(os.path.join(base_dir,"fastqc_raw","{sample}_fastqc.zip"),sample=SAMPLES),
-        expand(os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq.gz"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"filtered_reads","{sample}_filtered.fastq.gz"),sample=SAMPLES),
         os.path.join(base_dir,"Nanoplot","NanoPlot-report.html"),
-        expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.html"),sample=SAMPLES),
-        expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.zip"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"fastqc_filtered","{sample}_filtered_fastqc.html"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"fastqc_filtered","{sample}_filtered_fastqc.zip"),sample=SAMPLES),
         expand(os.path.join(base_dir,"genome_alignments","{sample}_alignment.sam"),sample=SAMPLES),
         expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam"),sample=SAMPLES),
         expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.flagstat"),sample=SAMPLES),
@@ -55,12 +51,9 @@ rule all:
         expand(os.path.join(base_dir,"stringtie","assemblies","{sample}.stringtie_final.gtf"),sample=SAMPLES),
         os.path.join(base_dir,"featureCounts","counts_gene.txt"),
         os.path.join(base_dir,"featureCounts","counts_transcript.txt"),
-        os.path.join(base_dir,"DESeq2","deseq2.results.txt"),
-        os.path.join(base_dir,"downstream","sampleheatmap.png"),
-        os.path.join(base_dir,"downstream","PCAsamples.png"),
-        os.path.join(base_dir,"downstream","top50heatmap.png")
-        #os.path.join(base_dir,"multiqc","multiqc_report.html")
+        # os.path.join(base_dir,"DESeq2","deseq2.results.txt"),
+        os.path.join(base_dir,"dataviz","sampleheatmap.png"),
+        os.path.join(base_dir,"dataviz","PCAsamples.png"),
+        os.path.join(base_dir,"dataviz","top50heatmap.png"),
+        os.path.join(base_dir,"multiqc","multiqc_report.html")
 
-""" to get all child job ids and then assess usage with jobhist job-id
-grep -i 'submit' snakemake.log | awk '{print $NF}' | sed 's-\.$--g' | awk '{print "jobhist", $NF}' | bash | grep -A1 '^Jobid'
- """

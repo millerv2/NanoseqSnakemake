@@ -4,17 +4,19 @@ rule dataviz:
         samples = config['samples']
         #samples = config['samples']
     output:
-        os.path.join(base_dir,"downstream","sampleheatmap.png"),
-        os.path.join(base_dir,"downstream","PCAsamples.png"),
-        os.path.join(base_dir,"downstream","top50heatmap.png")
+        os.path.join(base_dir,"dataviz","sampleheatmap.png"),
+        os.path.join(base_dir,"dataviz","PCAsamples.png"),
+        os.path.join(base_dir,"dataviz","top50heatmap.png")
     message:
         "Running dataviz script with {input}"
     params:
-        out_dir = os.path.join(base_dir,"downstream"),
-        scripts = os.path.join(base_dir,"NanoseqSnakemake","workflow","scripts","PCA_and_heatmaps.R")
+        out_dir = os.path.join(base_dir,"dataviz"),
+        script_dir = os.path.join(base_dir,"scripts"),
+        script_name = "PCA_and_heatmaps.R"
     envmodules:
         "R/4.1.0"
+    threads: getthreads("dataviz")
     shell:"""
-    mkdir -p {params.out_dir}
-    {params.scripts} {input.genecounts} {input.samples} {params.out_dir}
+    if [ ! -f {params.out_dir} ]; then mkdir -p {params.out_dir};fi
+    Rscript {params.script_dir}/{params.script_name} {input.genecounts} {input.samples} {params.out_dir}
     """

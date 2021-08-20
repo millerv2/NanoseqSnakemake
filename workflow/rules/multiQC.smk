@@ -2,10 +2,10 @@ rule multiQC:
     input:
         expand(os.path.join(base_dir,"fastqc_raw","{sample}_fastqc.html"),sample=SAMPLES),
         expand(os.path.join(base_dir,"fastqc_raw","{sample}_fastqc.zip"),sample=SAMPLES),
-        expand(os.path.join(base_dir,"trimmed_reads","{sample}_trimmed.fastq.gz"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"filtered_reads","{sample}_filtered.fastq.gz"),sample=SAMPLES),
         os.path.join(base_dir,"Nanoplot","NanoPlot-report.html"),
-        expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.html"),sample=SAMPLES),
-        expand(os.path.join(base_dir,"fastqc_trimmed","{sample}_trimmed_fastqc.zip"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"fastqc_filtered","{sample}_filtered_fastqc.html"),sample=SAMPLES),
+        expand(os.path.join(base_dir,"fastqc_filtered","{sample}_filtered_fastqc.zip"),sample=SAMPLES),
         expand(os.path.join(base_dir,"genome_alignments","{sample}_alignment.sam"),sample=SAMPLES),
         expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam"),sample=SAMPLES),
         expand(os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam.flagstat"),sample=SAMPLES),
@@ -30,6 +30,7 @@ rule multiQC:
     params:
         workdir = base_dir,
         outdir = os.path.join(base_dir,"multiqc")
+    threads: getthreads("multiQC")
     shell:'''
     multiqc --ignore '*/.singularity/*' -f --interactive --outdir {params.outdir} {params.workdir}
     '''

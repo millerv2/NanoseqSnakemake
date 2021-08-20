@@ -1,15 +1,15 @@
 # This file should contain everything to configure the workflow on a global scale.
 # In case of sample based data, it should be complemented by a samples.tsv file that contains
 # one row per sample. It can be parsed easily via pandas.
-samples: "WORKDIR/samples.tsv"
+samples: "/data/kopardevn/GitRepos/NanoseqSnakemake/config/samples.tsv"
 
-base_dir: "WORKDIR"
+base_dir: "/data/kopardevn/GitRepos/NanoseqSnakemake"
 
-sample_dir: "PIPELINE_HOME/.tests"
+sample_dir: "/data/kopardevn/GitRepos/NanoseqSnakemake/.tests"
 
-nanofilt:
-    headcrop: 10
-    length: 500
+headcrop: 10
+
+length: 500
 
 genome_fasta: "/data/CCBR_Pipeliner/db/PipeDB/Indices/hg38_basic/hg38.fa"
 
@@ -18,6 +18,4 @@ genome_gtf: "/data/CCBR_Pipeliner/db/PipeDB/Indices/hg38_basic/genes.gtf"
 minimap_options:
     directRNA: '-ax splice -uf -k14'
     cDNA: '-ax splice'
-    cDNAStranded: '-ax splice -uf'
-    directcDNA: '-ax splice -uf -k14'
     
