@@ -1,66 +1,22 @@
-rule bedtools_bam_to_bed:
+rule convert_bam:
     input:
-        os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam")
+        bam = os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam"),
+        chrom_sizes = os.path.join(base_dir,"genomes","chrom.sizes")
     output:
-        os.path.join(base_dir,"bedtools","bed_files","{sample}.bed")
-    message:
-        "Running bedtools with {input}"
-    envmodules:
-        "bedtools/2.30.0"
-    shell:'''
-    bedtools bamtobed -i {input} > {output}
-    '''
-
-#convert BED to BigBed track for visualization 
-
-rule bed_to_bigbed:
-    input:
         bed = os.path.join(base_dir,"bedtools","bed_files","{sample}.bed"),
-        chrom_sizes = os.path.join(base_dir,"genomes","chrom.sizes")
-    output:
-        sorted_bed = os.path.join(base_dir,"bedtools","bed_files","{sample}.sorted.bed"),
-        big_bed = os.path.join(base_dir,"bedtools","big_bed_files","{sample}.bigBed")
-    message:
-        "Running bedtools with {input}"
-    envmodules:
-        "ucsc/416"
-    shell:'''
-    sort -k1,1 -k2,2n {input.bed} > {output.sorted_bed}
-    bedToBigBed {output.sorted_bed} {input.chrom_sizes} {output.big_bed}
-    '''
-#convert bam to bedgraph
-
-rule bedtools_bam_to_bedGraph:
-    input:
-        os.path.join(base_dir,"genome_alignments","sorted_bam","{sample}.sorted.bam")
-    output:
-        os.path.join(base_dir,"bedtools","bedgraph_files","{sample}.bedGraph")
-    message:
-        "Running bedtools with {input}"
-    envmodules:
-        "bedtools/2.30.0"
-    shell:'''
-    bedtools genomecov -ibam {input} -bg | bedtools sort > {output}
-    '''
-
-#convert bedgraph to bigwig coverage track for visualization using ucsc utility:
-rule bedGraph_to_bigWig:
-    input:
+        big_bed = os.path.join(base_dir,"bedtools","big_bed_files","{sample}.bigBed"),
         bedGraph = os.path.join(base_dir,"bedtools","bedgraph_files","{sample}.bedGraph"),
-        chrom_sizes = os.path.join(base_dir,"genomes","chrom.sizes")
-    output:
-        os.path.join(base_dir,"bedtools","bigWig_tracks","{sample}.bigWig")
+        bigWig = os.path.join(base_dir,"bedtools","bigWig_tracks","{sample}.bigWig")
     message:
         "Running bedtools with {input}"
     envmodules:
-        "ucsc/416"
+        "bedtools/2.30.0","ucsc/416"
+    threads: getthreads("convert_bam")
     shell:'''
-    bedGraphToBigWig {input.bedGraph} {input.chrom_sizes} {output}
-    '''
+    bedtools bamtobed -i {input.bam} > {output.bed}
+    bedSort {output.bed} {output.bed}
+    bedToBigBed {output.bed} {input.chrom_sizes} {output.big_bed}
+    bedtools genomecov -ibam {input.bam} -bg | bedtools sort > {output.bedGraph}
+    bedGraphToBigWig {output.bedGraph} {input.chrom_sizes} {output.bigWig}
+'''
 
-
-#bedGraphToBigWig file.bedGraph path/chrom.sizes file_name.bigWig
-#bedGraphToBigWig \\
-#        $bedgraph \\
-#        $sizes \\
-#        ${sample}.bigWig

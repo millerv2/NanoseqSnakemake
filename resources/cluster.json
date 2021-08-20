@@ -5,9 +5,9 @@
 		"partition": "norm",
 		"threads": "2",
 		"time": "6:00:00",
-        "name": "{rule}.{wildcards}",
-		"output" : "logs/${{SLURM_JOBID}}.%j.{rule}.{wildcards}.out",
-		"error" : "logs/${{SLURM_JOBID}}.%j.{rule}.{wildcards}.err"
+                "name": "{rule}.{wildcards}",   
+                "output": "logs/${{SLURM_JOBID}}.%j.{rule}.{wildcards}.out",
+	        "error": "logs/${{SLURM_JOBID}}.%j.{rule}.{wildcards}.err"
 	},
 	"minimap_alignment": {
 		"mem": "64g",
@@ -27,9 +27,9 @@
 		"mem": "24g",
 		"time": "8:00:00"
 	},
-	"fastqc_trimmed": {
-		"mem": "24g",
+	"fastqc_filtered": {
+		"mem": "8g",
 		"time": "8:00:00",
-		"threads": "16"
+		"threads": "32"
 	}
 }

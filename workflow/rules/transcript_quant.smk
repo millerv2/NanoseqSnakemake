@@ -14,6 +14,7 @@ rule featureCounts:
     params:
         clean_path = os.path.join(base_dir,"genome_alignments","sorted_bam",""),
         extension = ".sorted.bam"
+    threads: getthreads("featureCounts")
     shell:"""
     featureCounts -L -O -g gene_id -t exon -a {input.merged_gtf} -o {output.genes} {input.bams} 
     featureCounts -L -O -f --primary --fraction -F GTF -g transcript_id -t transcript --extraAttributes gene_id -a {input.merged_gtf} -o {output.transcripts} {input.bams}
@@ -26,3 +27,4 @@ rule featureCounts:
  #take and define pattern with s (substitute) and @ is delimiter where in between the pattern is nested. g is global replacement
  #2 is only second line of file, below header line
  #-i is edit file
+
